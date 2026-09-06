@@ -59,6 +59,121 @@
 | BG15 | Đảm bảo khả năng kiểm tra và truy vết | Lưu vết các thao tác quan trọng để kiểm tra và điều tra sự cố. |
 | BG16 | Tạo nền tảng linh hoạt cho phát triển tương lai | Cho phép bổ sung dịch vụ, phương thức thanh toán và nhà cung cấp mới. |
 | BG17 | Chuẩn hóa và làm rõ chính sách nghiệp vụ | Làm rõ tính cước, ưu tiên tài xế, timeout, hủy chuyến, retry thanh toán và lưu trữ dữ liệu. |
+# CAB System - Modules
+
+## 1. Tổng quan
+
+Hệ thống CAB được chia thành các module dựa trên trách nhiệm nghiệp vụ.
+Mỗi module có phạm vi quản lý riêng và có thể phát triển tương đối độc lập.
+
+---
+
+## 2. Danh sách Module
+
+| Mã | Module | Loại |
+|---|---|---|
+| M01 | Quản lý tài khoản & người dùng | Supporting |
+| M02 | Quản lý tài xế & phương tiện | Core |
+| M03 | Đặt xe & quản lý chuyến đi | Core Business |
+| M04 | Điều phối & tìm tài xế | Core Business |
+| M05 | Định vị & theo dõi chuyến | Core |
+| M06 | Tính cước & thanh toán | Core Business |
+| M07 | Thông báo | Supporting |
+| M08 | Đánh giá & phản hồi | Supporting |
+| M09 | Quản lý vận hành | Supporting |
+| M10 | Quản trị & phân quyền | Supporting |
+| M11 | Báo cáo & thống kê | Supporting |
+| M12 | Bảo mật & Audit | Supporting |
+
+---
+
+# 3. M01 - Quản lý tài khoản & người dùng
+
+### Phạm vi
+
+Quản lý tài khoản, danh tính và quyền truy cập của người dùng CAB.
+
+### Chức năng
+
+- Đăng ký tài khoản
+- Đăng nhập / đăng xuất
+- Xác thực người dùng
+- Cập nhật thông tin cá nhân
+- Quản lý trạng thái tài khoản
+- Phân quyền người dùng
+
+### Actor
+
+- Khách hàng
+- Tài xế
+- Nhân viên vận hành
+- Quản trị viên
+
+---
+
+# 4. M02 - Quản lý tài xế & phương tiện
+
+### Phạm vi
+
+Quản lý hồ sơ tài xế, phương tiện và trạng thái hoạt động.
+
+### Chức năng
+
+- Tạo tài khoản tài xế
+- Quản lý hồ sơ tài xế
+- Quản lý phương tiện
+- Quản lý loại xe
+- Cập nhật trạng thái tài xế
+- Bật/tắt trạng thái sẵn sàng
+- Cập nhật vị trí tài xế
+- Xem lịch sử hoạt động
+
+### Actor
+
+- Tài xế
+- Nhân viên vận hành
+- Quản trị viên
+
+---
+
+# 5. M03 - Đặt xe & quản lý chuyến đi
+
+### Phạm vi
+
+Quản lý vòng đời yêu cầu đặt xe và chuyến đi từ khi khách hàng tạo yêu cầu đến khi chuyến hoàn thành hoặc bị hủy.
+
+### Chức năng
+
+- Nhập điểm đón
+- Nhập điểm đến
+- Chọn loại xe
+- Tạo yêu cầu đặt xe
+- Tiếp nhận yêu cầu
+- Theo dõi trạng thái chuyến
+- Cập nhật trạng thái chuyến
+- Hủy chuyến
+- Hoàn thành chuyến
+- Xem lịch sử chuyến
+
+### Trạng thái chuyến
+
+```text
+NEW
+ ↓
+SEARCHING_DRIVER
+ ↓
+DRIVER_ASSIGNED
+ ↓
+DRIVER_ARRIVING
+ ↓
+DRIVER_ARRIVED
+ ↓
+PASSENGER_PICKED_UP
+ ↓
+IN_TRIP
+ ↓
+COMPLETED
+
 
 # Business Boundary - CAB System
 
