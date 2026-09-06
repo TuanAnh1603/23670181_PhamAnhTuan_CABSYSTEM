@@ -3,7 +3,6 @@
  Nền tảng đặt xe trực tuyến CAB
 
 ---
-
 # 1. CÁC BÊN LIÊN QUAN
 
 | Bên liên quan | Vai trò | Nhiệm vụ |
