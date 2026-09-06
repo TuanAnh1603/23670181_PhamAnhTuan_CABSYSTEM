@@ -27,7 +27,7 @@
 
 # 2. MA TRẬN MỨC ĐỘ ẢNH HƯỞNG
 
-| Bên liên quan | Mức ảnh hưởng | Mức quan tâm | Chiến lược |
+| Bên liên quan | Ảnh hưởng | Quan tâm | Chiến lược |
 |---|---|---|---|
 | Ban giám đốc | Cao | Cao | Quản lý chặt chẽ |
 | Chủ sản phẩm | Cao | Cao | Quản lý chặt chẽ |
@@ -77,10 +77,10 @@
 | Mã | Miền nghiệp vụ | Phạm vi |
 |---|---|---|
 | B01 | Quản lý người dùng | Tài khoản, thông tin và quyền |
-| B02 | Quản lý tài xế & phương tiện | Tài xế, xe, trạng thái và vị trí |
-| B03 | Đặt xe & chuyến đi | Yêu cầu đặt xe và vòng đời chuyến |
+| B02 | Quản lý tài xế và phương tiện | Tài xế, xe, trạng thái và vị trí |
+| B03 | Đặt xe và chuyến đi | Yêu cầu đặt xe và vòng đời chuyến |
 | B04 | Điều phối tài xế | Tìm và phân công tài xế |
-| B05 | Tính cước & thanh toán | Tính tiền và thanh toán |
+| B05 | Tính cước và thanh toán | Tính tiền và thanh toán |
 | B06 | Thông báo | Gửi và quản lý thông báo |
 | B07 | Vận hành | Giám sát và xử lý sự cố |
 | B08 | Báo cáo | Báo cáo và thống kê |
@@ -114,7 +114,7 @@
 
 # 6. QUY TRÌNH NGHIỆP VỤ
 
-> Tối giản thành **7 quy trình chính** để hạn chế độ phức tạp khi triển khai.
+> Quy trình được tối giản thành **7 quy trình chính** để dễ phát triển và bảo trì.
 
 | Mã | Quy trình | Các bước chính |
 |---|---|---|
@@ -153,7 +153,7 @@
 
 | Vai trò | Nhiệm vụ |
 |---|---|
-| Khách hàng | Đặt xe, theo dõi, thanh toán, đánh giá |
+| Khách hàng | Đặt xe, theo dõi, thanh toán và đánh giá |
 | Tài xế | Nhận và thực hiện chuyến |
 | Nhân viên vận hành | Giám sát và xử lý sự cố |
 | Quản trị viên | Quản lý tài khoản và phân quyền |
@@ -178,7 +178,7 @@
 | EX07 | Lỗi thông báo | Thực hiện lại, không dừng đặt xe |
 | EX08 | Lỗi hệ thống | Ghi nhật ký → Xử lý sự cố |
 
-> Các ngoại lệ không tách thành quy trình hoặc Use Case riêng nếu chỉ là nhánh xử lý của nghiệp vụ chính.
+> Ngoại lệ chỉ là nhánh xử lý của quy trình chính, không tách thành quy trình riêng.
 
 ---
 
@@ -193,7 +193,7 @@
 | NFR05 | Độ tin cậy | Đảm bảo dữ liệu chuyến và giao dịch chính xác |
 | NFR06 | Khả năng bảo trì | Dễ bảo trì và triển khai chức năng mới |
 | NFR07 | Khả năng kiểm tra | Lưu vết các thao tác quan trọng |
-| NFR08 | Khả năng mở rộng chức năng | Dễ thêm dịch vụ, thanh toán và kênh thông báo |
+| NFR08 | Khả năng mở rộng chức năng | Dễ thêm dịch vụ, phương thức thanh toán và kênh thông báo |
 
 ---
 
@@ -241,17 +241,17 @@
 | Mã | Ca sử dụng | Tác nhân |
 |---|---|---|
 | UC01 | Quản lý tài khoản | Khách hàng, Tài xế, Quản trị viên |
-| UC02 | Quản lý tài xế & phương tiện | Tài xế, Nhân viên vận hành |
+| UC02 | Quản lý tài xế và phương tiện | Tài xế, Nhân viên vận hành |
 | UC03 | Quản lý vị trí tài xế | Tài xế, Hệ thống |
 | UC04 | Đặt xe | Khách hàng |
-| UC05 | Quản lý & theo dõi chuyến | Khách hàng, Tài xế, Nhân viên vận hành |
+| UC05 | Quản lý và theo dõi chuyến | Khách hàng, Tài xế, Nhân viên vận hành |
 | UC06 | Điều phối tài xế | Hệ thống, Tài xế |
 | UC07 | Tính cước | Hệ thống |
 | UC08 | Thanh toán | Khách hàng, Nhà cung cấp thanh toán |
 | UC09 | Gửi thông báo | Hệ thống, Nhà cung cấp thông báo |
 | UC10 | Quản lý vận hành | Nhân viên vận hành |
-| UC11 | Báo cáo & thống kê | Quản lý, Kế toán |
-| UC12 | Phân quyền & bảo mật | Quản trị viên |
+| UC11 | Báo cáo và thống kê | Quản lý, Kế toán |
+| UC12 | Phân quyền và bảo mật | Quản trị viên |
 | UC13 | Lưu vết hệ thống | Quản trị viên, An ninh |
 | UC14 | Đánh giá tài xế | Khách hàng |
 
@@ -259,7 +259,7 @@
 
 # 14. TIÊU CHÍ CHẤP NHẬN
 
-> Acceptance Criteria (AC) dùng để xác định FR đã được thực hiện đúng và đủ điều kiện nghiệm thu.
+> AC là điều kiện để xác định một yêu cầu chức năng đã được thực hiện đúng và đủ để nghiệm thu.
 
 | Mã AC | FR | Tiêu chí chấp nhận |
 |---|---|---|
@@ -270,23 +270,23 @@
 | AC05 | FR05 | Khách hàng xem được trạng thái chuyến và trạng thái được cập nhật chính xác |
 | AC06 | FR06 | Hệ thống tìm được tài xế phù hợp và gửi yêu cầu nhận chuyến |
 | AC07 | FR07 | Tài xế từ chối hoặc không phản hồi thì hệ thống tìm tài xế khác |
-| AC08 | FR07 | Không còn tài xế phù hợp thì hệ thống thông báo khách hàng |
+| AC08 | FR07 | Không còn tài xế phù hợp thì hệ thống thông báo cho khách hàng |
 | AC09 | FR08 | Chuyến hoàn thành thì hệ thống tính và hiển thị số tiền phải trả |
 | AC10 | FR09 | Thanh toán bằng tiền mặt hoặc điện tử và giao dịch có trạng thái rõ ràng |
 | AC11 | FR09 | Thanh toán thất bại thì hệ thống thông báo và cho phép xử lý lại |
-| AC12 | FR10 | Khách hàng và tài xế nhận được thông báo về sự kiện quan trọng |
+| AC12 | FR10 | Khách hàng và tài xế nhận được thông báo về các sự kiện quan trọng |
 | AC13 | FR11 | Nhân viên vận hành có thể xem và xử lý các trường hợp bất thường |
-| AC14 | FR12 | Hệ thống tạo được báo cáo chuyến, doanh thu và hiệu quả tài xế |
+| AC14 | FR12 | Hệ thống tạo được báo cáo về chuyến, doanh thu và hiệu quả tài xế |
 | AC15 | FR13 | Người dùng chỉ được thực hiện chức năng phù hợp với quyền |
 | AC16 | FR13 | Dữ liệu cá nhân, vị trí và giao dịch được bảo vệ khỏi truy cập trái phép |
-| AC17 | FR14 | Thao tác quan trọng được lưu người thực hiện, thời gian và hành động |
+| AC17 | FR14 | Các thao tác quan trọng được lưu người thực hiện, thời gian và hành động |
 | AC18 | FR14 | Người có quyền có thể tra cứu nhật ký hệ thống |
 
 ---
 
 # 15. MA TRẬN FR - AC
 
-| FR | Acceptance Criteria |
+| Mã FR | Tiêu chí chấp nhận |
 |---|---|
 | FR01 | AC01 |
 | FR02 | AC02 |
@@ -305,11 +305,11 @@
 
 ---
 
-# 16. MA TRẬN TRUY VẾT YÊU CẦU (RTM)
+# 16. MA TRẬN TRUY VẾT YÊU CẦU
 
-> RTM dùng để kiểm tra mối liên hệ từ mục tiêu nghiệp vụ → yêu cầu nghiệp vụ → yêu cầu chức năng → tiêu chí chấp nhận → Use Case → quy trình nghiệp vụ.
+> Ma trận truy vết giúp kiểm tra mối liên hệ giữa mục tiêu nghiệp vụ, yêu cầu nghiệp vụ, yêu cầu chức năng, tiêu chí chấp nhận, Use Case và quy trình.
 
-| BG | BR | FR | AC | UC | QT |
+| Mục tiêu | BR | FR | AC | UC | QT |
 |---|---|---|---|---|---|
 | BG01, BG02 | BR01 | FR01 | AC01 | UC01 | QT01 |
 | BG05 | BR02 | FR02 | AC02 | UC02 | QT04 |
@@ -331,7 +331,7 @@
 
 ---
 
-# 17. NGUYÊN TẮC TRUY VẾT
+# 17. QUY TẮC TRUY VẾT
 
 ```text
 Mục tiêu nghiệp vụ (BG)
