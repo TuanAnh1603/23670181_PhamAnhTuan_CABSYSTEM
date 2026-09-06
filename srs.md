@@ -254,6 +254,48 @@
 | UC14 | Đánh giá tài xế | Khách hàng |
 
 ---
+# 12. Acceptance Criteria (AC)
+
+> AC (Acceptance Criteria) là các tiêu chí dùng để xác định một Functional Requirement (FR) đã được thực hiện đúng và đủ để nghiệm thu.
+
+| Mã FR | Functional Requirement | Tiêu chí chấp nhận (AC) |
+|---|---|---|
+| FR01 | Quản lý tài khoản | Người dùng đăng ký, đăng nhập và cập nhật thông tin thành công. Thông tin không hợp lệ phải bị từ chối. |
+| FR02 | Quản lý tài xế & phương tiện | Nhân viên có thể tạo và cập nhật hồ sơ tài xế, phương tiện và trạng thái hoạt động. |
+| FR03 | Quản lý vị trí tài xế | Hệ thống cập nhật được vị trí tài xế và sử dụng vị trí để phục vụ điều phối. |
+| FR04 | Đặt xe | Khách hàng nhập điểm đón, điểm đến, loại xe và tạo yêu cầu thành công. |
+| FR05 | Theo dõi chuyến | Khách hàng xem được trạng thái chuyến và trạng thái được cập nhật đúng theo quá trình thực hiện. |
+| FR06 | Tìm & phân công tài xế | Hệ thống tìm được tài xế phù hợp và gửi yêu cầu nhận chuyến. |
+| FR07 | Xử lý từ chối / timeout | Khi tài xế từ chối hoặc không phản hồi, hệ thống tự động tìm tài xế khác. Nếu không còn tài xế, hệ thống thông báo cho khách hàng. |
+| FR08 | Tính cước | Sau khi chuyến hoàn thành, hệ thống tính và hiển thị đúng số tiền theo chính sách cước. |
+| FR09 | Thanh toán | Khách hàng thanh toán được bằng tiền mặt hoặc điện tử. Giao dịch phải có trạng thái rõ ràng. |
+| FR10 | Gửi thông báo | Khách hàng và tài xế nhận được thông báo khi xảy ra các sự kiện quan trọng. |
+| FR11 | Quản lý vận hành | Nhân viên vận hành có thể xem chuyến, tài xế và xử lý các trường hợp bất thường theo quyền. |
+| FR12 | Báo cáo & thống kê | Hệ thống tạo được báo cáo về số chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế. |
+| FR13 | Quyền & bảo mật | Người dùng chỉ được thực hiện chức năng đúng với quyền được cấp. |
+| FR14 | Audit | Các thao tác quan trọng được ghi nhận để có thể tra cứu người thực hiện, thời gian và hành động. |
+
+## Nguyên tắc nghiệm thu
+
+Một FR được xem là **Đạt** khi:
+
+1. Chức năng thực hiện đúng yêu cầu.
+2. Tất cả AC tương ứng đều đạt.
+3. Không có lỗi nghiêm trọng ảnh hưởng đến nghiệp vụ.
+4. Dữ liệu được lưu và hiển thị chính xác.
+5. Các trường hợp ngoại lệ quan trọng được xử lý đúng.
+
+## Ví dụ AC - FR07
+
+**FR07 - Xử lý từ chối / timeout**
+
+- Tài xế A từ chối → hệ thống tìm tài xế B.
+- Tài xế A không phản hồi hết thời gian quy định → hệ thống tìm tài xế B.
+- Không còn tài xế phù hợp → hệ thống thông báo cho khách hàng.
+
+> **FR = Hệ thống phải làm gì**  
+> **AC = Điều kiện để xác nhận FR đã làm đúng và được nghiệm thu**
+
 
 # 14. LUỒNG NGHIỆP VỤ CHÍNH
 
