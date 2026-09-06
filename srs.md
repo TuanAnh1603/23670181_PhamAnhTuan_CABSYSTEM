@@ -1,25 +1,31 @@
-
 # CAB System
 
-## Stakeholders
+> Hệ thống nền tảng đặt xe trực tuyến CAB
+
+---
+
+# 1. Stakeholders
 
 | Stakeholder | Vai trò | Nhiệm vụ |
 |---|---|---|
-| Ban giám đốc | Sponsor / Decision Maker | Định hướng, phê duyệt ngân sách, phạm vi và mục tiêu |
-| Business Analyst | Phân tích nghiệp vụ | Thu thập, phân tích và làm rõ yêu cầu |
-| Khách hàng | End User | Đăng ký, đặt xe, theo dõi chuyến, thanh toán, đánh giá |
-| Tài xế | End User | Nhận chuyến, cập nhật trạng thái, hoàn thành chuyến |
-| Nhân viên vận hành | Operations | Quản lý khách hàng, tài xế, chuyến đi và xử lý sự cố |
+| Ban giám đốc | Sponsor / Decision Maker | Định hướng, phê duyệt mục tiêu, phạm vi và ngân sách |
+| Product Owner | Product Owner | Xác định ưu tiên và quản lý sản phẩm |
+| Business Analyst | Business Analyst | Thu thập, phân tích và làm rõ yêu cầu |
+| Khách hàng | End User | Đăng ký, đặt xe, theo dõi, thanh toán và đánh giá |
+| Tài xế | End User | Nhận chuyến, cập nhật trạng thái và hoàn thành chuyến |
+| Nhân viên vận hành | Operations | Giám sát chuyến, tài xế và xử lý sự cố |
 | Kế toán / Tài chính | Financial | Quản lý doanh thu, giao dịch và đối soát |
-| Quản trị hệ thống | System Administrator | Quản lý tài khoản, phân quyền và cấu hình |
-| Đội phát triển | Development Team | Thiết kế, lập trình, kiểm thử và bảo trì |
+| Quản trị hệ thống | System Administrator | Quản lý tài khoản, quyền và cấu hình |
+| Đội phát triển | Development Team | Phân tích, thiết kế, lập trình và kiểm thử |
 | DevOps / IT | Technical Operations | Hạ tầng, triển khai, monitoring và scaling |
-| Security / Compliance | Security | Bảo vệ dữ liệu, phân quyền và audit |
+| Security / Compliance | Security | Bảo mật, phân quyền và audit |
 | Nhà cung cấp thanh toán | External Provider | Xử lý thanh toán điện tử |
 | Nhà cung cấp bản đồ | External Provider | Cung cấp vị trí, khoảng cách và định tuyến |
-| Nhà cung cấp thông báo | External Provider | Gửi SMS, Email, Push Notification |
+| Nhà cung cấp thông báo | External Provider | Gửi SMS, Email và Push Notification |
 
-## Ma trận mức độ ảnh hưởng
+---
+
+# 2. Stakeholder Influence Matrix
 
 | Stakeholder | Ảnh hưởng | Quan tâm | Chiến lược |
 |---|---|---|---|
@@ -28,362 +34,196 @@
 | Quản lý vận hành | Cao | Cao | Quản lý chặt chẽ |
 | Business Analyst | Cao | Cao | Quản lý chặt chẽ |
 | Nhân viên vận hành | Cao | Cao | Quản lý chặt chẽ |
-| Khách hàng | Trung bình | Cao | Tham khảo và cập nhật |
-| Tài xế | Trung bình | Cao | Tham khảo và cập nhật |
 | Kế toán / Tài chính | Cao | Cao | Quản lý chặt chẽ |
 | Security / Compliance | Cao | Cao | Quản lý chặt chẽ |
-| Đội phát triển | Trung bình | Cao | Phối hợp thường xuyên |
 | DevOps / IT | Cao | Cao | Phối hợp thường xuyên |
+| Khách hàng | Trung bình | Cao | Tham khảo và cập nhật |
+| Tài xế | Trung bình | Cao | Tham khảo và cập nhật |
+| Đội phát triển | Trung bình | Cao | Phối hợp thường xuyên |
 | Nhà cung cấp thanh toán | Trung bình | Trung bình | Duy trì hài lòng |
 | Nhà cung cấp bản đồ | Trung bình | Trung bình | Duy trì hài lòng |
 | Nhà cung cấp thông báo | Thấp - Trung bình | Trung bình | Theo dõi |
 
-# Business Goals
+---
 
-| Mã BG | Mục tiêu nghiệp vụ | Mô tả |
+# 3. Business Goals
+
+| Mã | Business Goal | Mô tả |
 |---|---|---|
-| BG01 | Xây dựng nền tảng CAB đặt xe trực tuyến | Xây dựng nền tảng đặt xe tập trung, thay thế phương thức đặt xe thủ công và ứng dụng hiện tại. |
-| BG02 | Nâng cao trải nghiệm khách hàng | Cho phép khách hàng đăng ký, đăng nhập, đặt xe, theo dõi chuyến, xem lịch sử, thanh toán và đánh giá tài xế. |
-| BG03 | Tự động hóa quy trình phân công tài xế | Tự động tìm kiếm và lựa chọn tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và các tiêu chí vận hành. |
-| BG04 | Rút ngắn thời gian tìm và phân công tài xế | Tự động tìm tài xế khác khi tài xế từ chối hoặc không phản hồi. |
-| BG05 | Quản lý tập trung hoạt động tài xế | Quản lý hồ sơ, phương tiện, trạng thái hoạt động và vị trí tài xế. |
-| BG06 | Minh bạch hóa trạng thái chuyến đi | Cho phép theo dõi trạng thái chuyến từ lúc tạo yêu cầu đến khi hoàn thành. |
-| BG07 | Tự động hóa tính cước và thanh toán | Tính cước và hỗ trợ thanh toán tiền mặt hoặc điện tử. |
-| BG08 | Đảm bảo an toàn thông tin thanh toán | Không lưu trực tiếp thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán. |
-| BG09 | Xây dựng hệ thống thông báo đa kênh | Gửi thông báo cho khách hàng và tài xế, đồng thời hỗ trợ mở rộng thêm kênh trong tương lai. |
-| BG10 | Nâng cao hiệu quả vận hành | Cung cấp giao diện quản trị để quản lý khách hàng, tài xế, phương tiện và chuyến đi. |
-| BG11 | Cung cấp dữ liệu và báo cáo quản trị | Báo cáo số chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế. |
-| BG12 | Đảm bảo khả năng mở rộng hệ thống | Hỗ trợ số lượng lớn khách hàng, tài xế và mở rộng độc lập các thành phần. |
-| BG13 | Đảm bảo tính ổn định và sẵn sàng | Lỗi thanh toán hoặc thông báo không làm ngừng toàn bộ hệ thống. |
-| BG14 | Đảm bảo bảo mật và kiểm soát truy cập | Xác thực, phân quyền và bảo vệ dữ liệu cá nhân, vị trí và giao dịch. |
-| BG15 | Đảm bảo khả năng kiểm tra và truy vết | Lưu vết các thao tác quan trọng để kiểm tra và điều tra sự cố. |
-| BG16 | Tạo nền tảng linh hoạt cho phát triển tương lai | Cho phép bổ sung dịch vụ, phương thức thanh toán và nhà cung cấp mới. |
-| BG17 | Chuẩn hóa và làm rõ chính sách nghiệp vụ | Làm rõ tính cước, ưu tiên tài xế, timeout, hủy chuyến, retry thanh toán và lưu trữ dữ liệu. |
-
-# CAB System - Modules
-
-## 1. Tổng quan
-
-Hệ thống CAB được chia thành các module dựa trên trách nhiệm nghiệp vụ.
-Mỗi module có phạm vi quản lý riêng và có thể phát triển tương đối độc lập.
+| BG01 | Xây dựng nền tảng CAB | Xây dựng nền tảng đặt xe trực tuyến tập trung |
+| BG02 | Nâng cao trải nghiệm khách hàng | Hỗ trợ đặt xe, theo dõi, thanh toán và đánh giá |
+| BG03 | Tự động hóa điều phối | Tự động tìm và phân công tài xế |
+| BG04 | Giảm thời gian tìm tài xế | Tự động chuyển sang tài xế khác khi từ chối hoặc timeout |
+| BG05 | Quản lý tài xế tập trung | Quản lý hồ sơ, phương tiện, trạng thái và vị trí |
+| BG06 | Minh bạch trạng thái chuyến | Theo dõi chuyến từ lúc đặt đến khi hoàn thành |
+| BG07 | Tự động hóa tính cước và thanh toán | Hỗ trợ tính cước và nhiều phương thức thanh toán |
+| BG08 | Bảo vệ thông tin thanh toán | Không lưu trực tiếp dữ liệu thanh toán nhạy cảm |
+| BG09 | Thông báo đa kênh | Gửi thông báo cho khách hàng và tài xế |
+| BG10 | Nâng cao hiệu quả vận hành | Cung cấp công cụ quản lý và xử lý sự cố |
+| BG11 | Báo cáo quản trị | Cung cấp dữ liệu về chuyến, doanh thu và hiệu quả |
+| BG12 | Khả năng mở rộng | Hỗ trợ lượng lớn khách hàng và tài xế |
+| BG13 | Tính ổn định | Lỗi một thành phần không làm dừng toàn hệ thống |
+| BG14 | Bảo mật | Xác thực, phân quyền và bảo vệ dữ liệu |
+| BG15 | Audit | Lưu vết các thao tác quan trọng |
+| BG16 | Linh hoạt phát triển | Dễ bổ sung dịch vụ, thanh toán và thông báo |
+| BG17 | Chuẩn hóa nghiệp vụ | Làm rõ tính cước, dispatch, timeout, hủy và retry |
 
 ---
 
-## 2. Danh sách Module
+# 4. Business Boundary
 
-| Mã | Module | Loại |
+## 4.1 Business Domains
+
+| Mã | Business Domain | Giới hạn quản lý |
 |---|---|---|
-| M01 | Quản lý tài khoản & người dùng | Supporting |
-| M02 | Quản lý tài xế & phương tiện | Core |
-| M03 | Đặt xe & quản lý chuyến đi | Core Business |
-| M04 | Điều phối & tìm tài xế | Core Business |
-| M05 | Định vị & theo dõi chuyến | Core |
-| M06 | Tính cước & thanh toán | Core Business |
-| M07 | Thông báo | Supporting |
-| M08 | Đánh giá & phản hồi | Supporting |
-| M09 | Quản lý vận hành | Supporting |
-| M10 | Quản trị & phân quyền | Supporting |
-| M11 | Báo cáo & thống kê | Supporting |
-| M12 | Bảo mật & Audit | Supporting |
+| B01 | User Management | Tài khoản, danh tính và quyền người dùng |
+| B02 | Driver & Vehicle Management | Tài xế, phương tiện, trạng thái và vị trí |
+| B03 | Booking & Trip Management | Yêu cầu đặt xe và vòng đời chuyến |
+| B04 | Driver Dispatch | Tìm kiếm và phân công tài xế |
+| B05 | Fare & Payment | Tính cước và thanh toán |
+| B06 | Notification | Gửi và quản lý thông báo |
+| B07 | Operations Management | Giám sát và xử lý vận hành |
+| B08 | Reporting & Analytics | Báo cáo và phân tích dữ liệu |
 
 ---
 
-# 3. M01 - Quản lý tài khoản & người dùng
+## 4.2 B01 - User Management
 
-### Phạm vi
+**Phạm vi:** Quản lý tài khoản và danh tính người dùng.
 
-Quản lý tài khoản, danh tính và quyền truy cập của người dùng CAB.
+| Mã | Business con |
+|---|---|
+| B01.01 | Đăng ký tài khoản |
+| B01.02 | Đăng nhập & xác thực |
+| B01.03 | Quản lý hồ sơ |
+| B01.04 | Phân quyền |
+| B01.05 | Trạng thái tài khoản |
 
-### Chức năng
-
-- Đăng ký tài khoản
-- Đăng nhập / đăng xuất
-- Xác thực người dùng
-- Cập nhật thông tin cá nhân
-- Quản lý trạng thái tài khoản
-- Phân quyền người dùng
-
-### Actor
-
-- Khách hàng
-- Tài xế
-- Nhân viên vận hành
-- Quản trị viên
+**Không quản lý:** Đặt xe, điều phối, tính cước và thanh toán.
 
 ---
 
-# 4. M02 - Quản lý tài xế & phương tiện
+## 4.3 B02 - Driver & Vehicle Management
 
-### Phạm vi
+**Phạm vi:** Quản lý tài xế, phương tiện và trạng thái hoạt động.
 
-Quản lý hồ sơ tài xế, phương tiện và trạng thái hoạt động.
+| Mã | Business con |
+|---|---|
+| B02.01 | Hồ sơ tài xế |
+| B02.02 | Quản lý phương tiện |
+| B02.03 | Trạng thái tài xế |
+| B02.04 | Vị trí tài xế |
+| B02.05 | Lịch sử hoạt động |
 
-### Chức năng
-
-- Tạo tài khoản tài xế
-- Quản lý hồ sơ tài xế
-- Quản lý phương tiện
-- Quản lý loại xe
-- Cập nhật trạng thái tài xế
-- Bật/tắt trạng thái sẵn sàng
-- Cập nhật vị trí tài xế
-- Xem lịch sử hoạt động
-
-### Actor
-
-- Tài xế
-- Nhân viên vận hành
-- Quản trị viên
+**Không quản lý:** Quyết định phân công, tính cước và thanh toán.
 
 ---
 
-# 5. M03 - Đặt xe & quản lý chuyến đi
+## 4.4 B03 - Booking & Trip Management
 
-### Phạm vi
+**Phạm vi:** Quản lý vòng đời yêu cầu đặt xe và chuyến đi.
 
-Quản lý vòng đời yêu cầu đặt xe và chuyến đi từ khi khách hàng tạo yêu cầu đến khi chuyến hoàn thành hoặc bị hủy.
-
-### Chức năng
-
-- Nhập điểm đón
-- Nhập điểm đến
-- Chọn loại xe
-- Tạo yêu cầu đặt xe
-- Tiếp nhận yêu cầu
-- Theo dõi trạng thái chuyến
-- Cập nhật trạng thái chuyến
-- Hủy chuyến
-- Hoàn thành chuyến
-- Xem lịch sử chuyến
-
-
-# Business Boundary - CAB System
-
-## 1. Tổng quan
-
-Hệ thống CAB được phân chia thành các Business Domain dựa trên trách nhiệm nghiệp vụ. 
-Mỗi Business có một phạm vi quản lý riêng và chịu trách nhiệm cho một nhóm nghiệp vụ cụ thể.
+| Mã | Business con |
+|---|---|
+| B03.01 | Tạo yêu cầu đặt xe |
+| B03.02 | Quản lý yêu cầu |
+| B03.03 | Quản lý chuyến |
+| B03.04 | Cập nhật trạng thái |
+| B03.05 | Hủy chuyến |
+| B03.06 | Lịch sử chuyến |
 
 ---
 
-## 2. Business Domain
+## 4.5 B04 - Driver Dispatch
 
-| Mã | Business | Giới hạn quản lý |
-|---|---|---|
-| B01 | User Management | Quản lý danh tính, tài khoản và quyền truy cập người dùng |
-| B02 | Driver & Vehicle Management | Quản lý hồ sơ, phương tiện, trạng thái và vị trí tài xế |
-| B03 | Booking & Trip Management | Quản lý vòng đời yêu cầu đặt xe và chuyến đi |
-| B04 | Driver Dispatch | Tìm kiếm, lựa chọn và phân công tài xế |
-| B05 | Fare & Payment | Tính cước và quản lý quá trình thanh toán |
-| B06 | Notification | Quản lý và gửi thông báo đến khách hàng và tài xế |
-| B07 | Operations Management | Giám sát, hỗ trợ và xử lý các vấn đề vận hành |
-| B08 | Reporting & Analytics | Tổng hợp dữ liệu và cung cấp báo cáo quản trị |
+**Phạm vi:** Tìm kiếm, lựa chọn và phân công tài xế.
 
----
-
-# 3. B01 - User Management
-
-### Giới hạn quản lý
-
-Quản lý danh tính và tài khoản của người sử dụng hệ thống CAB.
-
-### Business con
-
-| Mã | Business con | Phạm vi |
-|---|---|---|
-| B01.01 | Đăng ký tài khoản | Tạo tài khoản người dùng |
-| B01.02 | Xác thực & đăng nhập | Xác thực người dùng và đăng nhập |
-| B01.03 | Quản lý hồ sơ | Cập nhật thông tin cá nhân |
-| B01.04 | Phân quyền | Xác định quyền của từng nhóm người dùng |
-| B01.05 | Trạng thái tài khoản | Active, Locked, Suspended |
-
-### Không quản lý
-
-- Đặt chuyến
-- Tìm tài xế
-- Tính cước
-- Thanh toán
+| Mã | Business con |
+|---|---|
+| B04.01 | Tìm tài xế |
+| B04.02 | Lọc tài xế |
+| B04.03 | Xếp hạng tài xế |
+| B04.04 | Gửi yêu cầu nhận chuyến |
+| B04.05 | Xử lý timeout |
+| B04.06 | Re-dispatch |
+| B04.07 | Không tìm được tài xế |
 
 ---
 
-# 4. B02 - Driver & Vehicle Management
+## 4.6 B05 - Fare & Payment
 
-### Giới hạn quản lý
+**Phạm vi:** Tính số tiền phải trả và xử lý thanh toán.
 
-Quản lý thông tin, năng lực và trạng thái hoạt động của tài xế và phương tiện.
-
-### Business con
-
-| Mã | Business con | Phạm vi |
-|---|---|---|
-| B02.01 | Hồ sơ tài xế | Thông tin tài xế |
-| B02.02 | Quản lý phương tiện | Thông tin xe và loại xe |
-| B02.03 | Trạng thái tài xế | Online, Offline, Available, Busy |
-| B02.04 | Vị trí tài xế | Lưu và cập nhật vị trí |
-| B02.05 | Lịch sử hoạt động | Lịch sử hoạt động của tài xế |
-| B02.06 | Đánh giá tài xế | Thông tin đánh giá từ khách hàng |
-
-### Không quản lý
-
-- Quyết định tài xế nhận chuyến
-- Tính cước chuyến
-- Xử lý thanh toán
+| Mã | Business con |
+|---|---|
+| B05.01 | Tính cước |
+| B05.02 | Phương thức thanh toán |
+| B05.03 | Tạo giao dịch |
+| B05.04 | Thanh toán điện tử |
+| B05.05 | Xử lý thanh toán thất bại |
+| B05.06 | Đối soát |
+| B05.07 | Lịch sử thanh toán |
 
 ---
 
-# 5. B03 - Booking & Trip Management
+## 4.7 B06 - Notification
 
-### Giới hạn quản lý
+**Phạm vi:** Quản lý và gửi thông báo.
 
-Quản lý vòng đời của yêu cầu đặt xe và chuyến đi từ khi khách hàng tạo yêu cầu đến khi chuyến hoàn thành hoặc bị hủy.
+| Mã | Business con |
+|---|---|
+| B06.01 | Thông báo đặt xe |
+| B06.02 | Thông báo phân công |
+| B06.03 | Thông báo tài xế đến |
+| B06.04 | Thông báo hoàn thành |
+| B06.05 | Thông báo thanh toán |
+| B06.06 | Quản lý kênh thông báo |
 
-### Business con
-
-| Mã | Business con | Phạm vi |
-|---|---|---|
-| B03.01 | Tạo yêu cầu đặt xe | Điểm đón, điểm đến, loại xe |
-| B03.02 | Quản lý yêu cầu | Created, Searching, Assigned |
-| B03.03 | Quản lý chuyến đi | Quản lý vòng đời Trip |
-| B03.04 | Cập nhật trạng thái | Arrived, Picked Up, In Trip, Completed |
-| B03.05 | Hủy chuyến | Xử lý các trường hợp hủy |
-| B03.06 | Lịch sử chuyến | Tra cứu các chuyến đã thực hiện |
-
-### Không quản lý
-
-- Thuật toán lựa chọn tài xế
-- Tính tiền
-- Gửi thông báo
+**Kênh:** Push Notification, SMS, Email.
 
 ---
 
-# 6. B04 - Driver Dispatch
+## 4.8 B07 - Operations Management
 
-### Giới hạn quản lý
+**Phạm vi:** Giám sát và xử lý hoạt động vận hành.
 
-Tìm kiếm, đánh giá, lựa chọn và phân công tài xế cho một yêu cầu đặt xe.
-
-### Business con
-
-| Mã | Business con | Phạm vi |
-|---|---|---|
-| B04.01 | Tìm tài xế | Tìm tài xế phù hợp |
-| B04.02 | Lọc tài xế | Theo vị trí, trạng thái, loại xe |
-| B04.03 | Xếp hạng tài xế | Ưu tiên tài xế phù hợp |
-| B04.04 | Gửi yêu cầu nhận chuyến | Gửi offer cho tài xế |
-| B04.05 | Timeout | Xử lý tài xế không phản hồi |
-| B04.06 | Re-dispatch | Tìm tài xế tiếp theo |
-| B04.07 | Không tìm được tài xế | Thông báo không có tài xế |
-
-### Không quản lý
-
-- Tạo yêu cầu đặt xe
-- Quản lý trạng thái Trip
-- Tính cước
+| Mã | Business con |
+|---|---|
+| B07.01 | Giám sát chuyến |
+| B07.02 | Giám sát tài xế |
+| B07.03 | Hỗ trợ khách hàng |
+| B07.04 | Quản lý tài xế |
+| B07.05 | Xử lý sự cố |
+| B07.06 | Hỗ trợ thanh toán |
+| B07.07 | Quản lý quyền nhân viên |
 
 ---
 
-# 7. B05 - Fare & Payment
+## 4.9 B08 - Reporting & Analytics
 
-### Giới hạn quản lý
+**Phạm vi:** Tổng hợp dữ liệu phục vụ quản trị và ra quyết định.
 
-Xác định số tiền khách hàng phải trả và quản lý quá trình thanh toán.
-
-### Business con
-
-| Mã | Business con | Phạm vi |
-|---|---|---|
-| B05.01 | Tính cước | Xác định giá chuyến |
-| B05.02 | Phương thức thanh toán | Cash / Electronic |
-| B05.03 | Tạo giao dịch | Tạo Payment Transaction |
-| B05.04 | Thanh toán điện tử | Tích hợp Payment Provider |
-| B05.05 | Xử lý thất bại | Retry / Failed |
-| B05.06 | Đối soát | Kiểm tra giao dịch |
-| B05.07 | Lịch sử thanh toán | Tra cứu giao dịch |
-
-### Không quản lý
-
-- Điều phối tài xế
-- Cập nhật trạng thái chuyến
-- Quản lý tài khoản người dùng
+| Mã | Business con |
+|---|---|
+| B08.01 | Báo cáo chuyến |
+| B08.02 | Báo cáo doanh thu |
+| B08.03 | Báo cáo hoàn thành |
+| B08.04 | Báo cáo hủy |
+| B08.05 | Báo cáo hiệu quả tài xế |
+| B08.06 | Dashboard KPI |
 
 ---
 
-# 8. B06 - Notification
+# 5. Business Requirements
 
-### Giới hạn quản lý
-
-Quản lý việc tạo và gửi thông báo nghiệp vụ đến khách hàng và tài xế.
-
-### Business con
-
-| Mã | Business con | Phạm vi |
-|---|---|---|
-| B06.01 | Thông báo đặt xe | Yêu cầu được tiếp nhận |
-| B06.02 | Thông báo phân công | Tài xế nhận chuyến |
-| B06.03 | Thông báo tài xế đến | Driver Arrived |
-| B06.04 | Thông báo hoàn thành | Trip Completed |
-| B06.05 | Thông báo thanh toán | Payment Success / Failed |
-| B06.06 | Quản lý kênh | Push, SMS, Email |
-
-### Nguyên tắc
-
-Notification là business hỗ trợ.
-
-Nếu dịch vụ thông báo gặp lỗi thì các nghiệp vụ chính như đặt xe và chuyến đi vẫn phải tiếp tục hoạt động.
-
----
-
-# 9. B07 - Operations Management
-
-### Giới hạn quản lý
-
-Giám sát, hỗ trợ và xử lý các vấn đề phát sinh trong quá trình vận hành hệ thống CAB.
-
-### Business con
-
-| Mã | Business con | Phạm vi |
-|---|---|---|
-| B07.01 | Giám sát chuyến | Theo dõi các chuyến đang hoạt động |
-| B07.02 | Giám sát tài xế | Kiểm tra trạng thái tài xế |
-| B07.03 | Hỗ trợ khách hàng | Tra cứu và hỗ trợ khách |
-| B07.04 | Quản lý tài xế | Hỗ trợ và quản lý thông tin tài xế |
-| B07.05 | Xử lý sự cố | Xử lý Trip lỗi hoặc bất thường |
-| B07.06 | Hỗ trợ thanh toán | Tra cứu giao dịch |
-| B07.07 | Quản lý quyền nhân viên | Kiểm soát quyền thao tác |
-
----
-
-# 10. B08 - Reporting & Analytics
-
-### Giới hạn quản lý
-
-Tổng hợp dữ liệu nghiệp vụ để phục vụ quản trị, theo dõi KPI và ra quyết định.
-
-### Business con
-
-| Mã | Business con | Phạm vi |
-|---|---|---|
-| B08.01 | Báo cáo chuyến | Số lượng chuyến |
-| B08.02 | Báo cáo doanh thu | Revenue |
-| B08.03 | Báo cáo hoàn thành | Completion Rate |
-| B08.04 | Báo cáo hủy | Cancellation Rate |
-| B08.05 | Báo cáo tài xế | Driver Performance |
-| B08.06 | Dashboard | KPI vận hành |
-
-
-
-
-
-#5 CAB System - Business Requirements
-
-## 1. User Management
+## B01 - User Management
 
 ### BR01 - Quản lý người dùng
 Hệ thống phải hỗ trợ đăng ký, đăng nhập, cập nhật thông tin và quản lý quyền người dùng.
 
 ---
 
-## 2. Driver & Vehicle
+## B02 - Driver & Vehicle Management
 
 ### BR02 - Quản lý tài xế và phương tiện
 Hệ thống phải hỗ trợ quản lý hồ sơ tài xế, phương tiện và trạng thái sẵn sàng nhận chuyến.
@@ -393,20 +233,20 @@ Hệ thống phải quản lý vị trí tài xế để phục vụ điều ph�
 
 ---
 
-## 3. Booking & Trip
+## B03 - Booking & Trip Management
 
 ### BR04 - Đặt xe
 Hệ thống phải cho phép khách hàng tạo yêu cầu đặt xe với điểm đón, điểm đến và loại xe.
 
 ### BR05 - Quản lý chuyến đi
-Hệ thống phải quản lý toàn bộ vòng đời chuyến đi từ tạo yêu cầu đến hoàn thành hoặc hủy.
+Hệ thống phải quản lý vòng đời chuyến đi từ khi tạo yêu cầu đến khi hoàn thành hoặc hủy.
 
 ### BR06 - Theo dõi chuyến
 Hệ thống phải cho phép khách hàng và nhân viên vận hành theo dõi trạng thái và thông tin chuyến.
 
 ---
 
-## 4. Driver Dispatch
+## B04 - Driver Dispatch
 
 ### BR07 - Tự động tìm và phân công tài xế
 Hệ thống phải tự động tìm và ưu tiên tài xế phù hợp dựa trên vị trí, trạng thái và tiêu chí vận hành.
@@ -414,12 +254,12 @@ Hệ thống phải tự động tìm và ưu tiên tài xế phù hợp dựa t
 ### BR08 - Xử lý tài xế từ chối hoặc không phản hồi
 Hệ thống phải tiếp tục tìm tài xế khác khi tài xế không phản hồi hoặc từ chối chuyến.
 
-### BR09 - Xử lý không tìm được tài xế
+### BR09 - Không tìm được tài xế
 Hệ thống phải thông báo rõ ràng cho khách hàng khi không tìm được tài xế.
 
 ---
 
-## 5. Fare & Payment
+## B05 - Fare & Payment
 
 ### BR10 - Tính cước
 Hệ thống phải xác định số tiền khách hàng phải trả theo chính sách tính cước của doanh nghiệp.
@@ -427,29 +267,33 @@ Hệ thống phải xác định số tiền khách hàng phải trả theo chí
 ### BR11 - Thanh toán
 Hệ thống phải hỗ trợ thanh toán tiền mặt và thanh toán điện tử thông qua nhà cung cấp bên ngoài.
 
-### BR12 - Xử lý thanh toán thất bại
+### BR12 - Thanh toán thất bại
 Hệ thống phải thông báo kết quả và hỗ trợ xử lý lại giao dịch khi thanh toán thất bại.
 
 ---
 
-## 6. Notification
+## B06 - Notification
 
 ### BR13 - Thông báo
 Hệ thống phải thông báo cho khách hàng và tài xế về các sự kiện quan trọng của chuyến đi và thanh toán.
 
 ---
 
-## 7. Operations & Reporting
+## B07 - Operations Management
 
 ### BR14 - Quản lý vận hành
 Hệ thống phải cung cấp chức năng để nhân viên vận hành giám sát, tra cứu và xử lý các trường hợp bất thường.
+
+---
+
+## B08 - Reporting & Analytics
 
 ### BR15 - Báo cáo
 Hệ thống phải cung cấp báo cáo về chuyến đi, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế.
 
 ---
 
-## 8. Security & Scalability
+## Cross-cutting Requirements
 
 ### BR16 - Bảo mật và kiểm soát truy cập
 Hệ thống phải bảo vệ dữ liệu và kiểm soát quyền truy cập đối với các chức năng nhạy cảm.
@@ -460,5 +304,17 @@ Hệ thống phải cho phép mở rộng quy mô, bổ sung dịch vụ, phươ
 ### BR18 - Audit
 Hệ thống phải lưu vết các thao tác quan trọng để phục vụ kiểm tra và xử lý sự cố.
 
+---
 
+# 6. Requirement Traceability
 
+```text
+Business Goal
+     ↓
+Business Domain
+     ↓
+Business Requirement
+     ↓
+Functional Requirement
+     ↓
+Use Case
