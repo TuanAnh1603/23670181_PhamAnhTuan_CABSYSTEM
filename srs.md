@@ -306,15 +306,83 @@ Hệ thống phải lưu vết các thao tác quan trọng để phục vụ ki�
 
 ---
 
-# 6. Requirement Traceability
+# CAB System - Business Process
 
-```text
-Business Goal
-     ↓
-Business Domain
-     ↓
-Business Requirement
-     ↓
-Functional Requirement
-     ↓
-Use Case
+## BP01 - Quản lý tài khoản
+**BR:** BR01, BR16
+
+1. Đăng ký / đăng nhập
+2. Xác thực người dùng
+3. Quản lý thông tin và quyền truy cập
+
+---
+
+## BP02 - Đặt xe
+**BR:** BR04, BR06, BR13
+
+1. Khách hàng nhập thông tin chuyến và gửi yêu cầu
+2. Hệ thống tiếp nhận và tạo chuyến
+3. Thông báo trạng thái yêu cầu
+
+---
+
+## BP03 - Điều phối tài xế
+**BR:** BR02, BR03, BR07, BR08, BR09, BR13
+
+1. Hệ thống tìm và ưu tiên tài xế phù hợp
+2. Gửi yêu cầu nhận chuyến
+3. Tài xế nhận / từ chối / không phản hồi
+4. Nếu không nhận, hệ thống tìm tài xế khác
+5. Thông báo kết quả cho khách hàng
+
+---
+
+## BP04 - Thực hiện chuyến
+**BR:** BR05, BR06, BR13
+
+1. Tài xế nhận và thực hiện chuyến
+2. Cập nhật trạng thái và vị trí
+3. Hoàn thành hoặc hủy chuyến
+4. Thông báo trạng thái cho khách hàng
+
+---
+
+## BP05 - Tính cước & thanh toán
+**BR:** BR10, BR11, BR12, BR13
+
+1. Hệ thống tính cước sau khi chuyến hoàn thành
+2. Khách hàng chọn phương thức thanh toán
+3. Hệ thống xử lý và ghi nhận thanh toán
+4. Thông báo kết quả
+5. Xử lý lại nếu thanh toán thất bại
+
+---
+
+## BP06 - Lịch sử & đánh giá
+**BR:** BR05, BR06
+
+1. Khách hàng xem lịch sử và chi tiết chuyến
+2. Khách hàng xem cước
+3. Khách hàng đánh giá tài xế
+4. Hệ thống lưu kết quả
+
+---
+
+## BP07 - Vận hành & báo cáo
+**BR:** BR14, BR15, BR16, BR18
+
+1. Nhân viên quản lý và giám sát hệ thống
+2. Tra cứu và xử lý chuyến / giao dịch bất thường
+3. Hệ thống ghi nhận Audit Log
+4. Hệ thống tổng hợp và cung cấp báo cáo
+
+---
+
+## BP08 - Mở rộng hệ thống
+**BR:** BR17
+
+1. Quản lý các thành phần độc lập
+2. Bổ sung dịch vụ mới
+3. Bổ sung phương thức thanh toán
+4. Bổ sung kênh / nhà cung cấp thông báo
+
