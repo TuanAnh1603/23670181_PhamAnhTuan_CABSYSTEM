@@ -59,6 +59,7 @@
 | BG15 | Đảm bảo khả năng kiểm tra và truy vết | Lưu vết các thao tác quan trọng để kiểm tra và điều tra sự cố. |
 | BG16 | Tạo nền tảng linh hoạt cho phát triển tương lai | Cho phép bổ sung dịch vụ, phương thức thanh toán và nhà cung cấp mới. |
 | BG17 | Chuẩn hóa và làm rõ chính sách nghiệp vụ | Làm rõ tính cước, ưu tiên tài xế, timeout, hủy chuyến, retry thanh toán và lưu trữ dữ liệu. |
+
 # CAB System - Modules
 
 ## 1. Tổng quan
@@ -154,25 +155,6 @@ Quản lý vòng đời yêu cầu đặt xe và chuyến đi từ khi khách h�
 - Hủy chuyến
 - Hoàn thành chuyến
 - Xem lịch sử chuyến
-
-### Trạng thái chuyến
-
-```text
-NEW
- ↓
-SEARCHING_DRIVER
- ↓
-DRIVER_ASSIGNED
- ↓
-DRIVER_ARRIVING
- ↓
-DRIVER_ARRIVED
- ↓
-PASSENGER_PICKED_UP
- ↓
-IN_TRIP
- ↓
-COMPLETED
 
 
 # Business Boundary - CAB System
