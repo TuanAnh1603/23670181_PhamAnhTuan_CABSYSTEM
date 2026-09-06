@@ -1,54 +1,54 @@
-# 🚕 CAB System
+# 🚕 HỆ THỐNG CAB
 
 > Nền tảng đặt xe trực tuyến CAB
 
 ---
 
-# 1. Stakeholders
+# 1. CÁC BÊN LIÊN QUAN
 
-| Stakeholder | Vai trò | Nhiệm vụ |
+| Bên liên quan | Vai trò | Nhiệm vụ |
 |---|---|---|
-| Ban giám đốc | Sponsor | Định hướng, phê duyệt mục tiêu, phạm vi, ngân sách |
-| Product Owner | Product Owner | Xác định ưu tiên và quản lý sản phẩm |
-| Business Analyst | BA | Phân tích và làm rõ yêu cầu |
-| Khách hàng | End User | Đặt xe, theo dõi, thanh toán, đánh giá |
-| Tài xế | End User | Nhận, thực hiện và hoàn thành chuyến |
-| Nhân viên vận hành | Operations | Giám sát và xử lý sự cố |
-| Kế toán / Tài chính | Financial | Quản lý doanh thu và giao dịch |
-| Quản trị hệ thống | Administrator | Quản lý tài khoản, quyền và cấu hình |
-| Đội phát triển | Development | Thiết kế, lập trình, kiểm thử |
-| DevOps / IT | Technical | Hạ tầng, triển khai, giám sát |
-| Security / Compliance | Security | Bảo mật, phân quyền, Audit |
-| Payment Provider | External | Xử lý thanh toán điện tử |
-| Map Provider | External | Cung cấp vị trí và định tuyến |
-| Notification Provider | External | Gửi thông báo |
+| Ban giám đốc | Nhà tài trợ | Định hướng, phê duyệt mục tiêu, phạm vi và ngân sách |
+| Chủ sản phẩm | Quản lý sản phẩm | Xác định ưu tiên và quản lý sản phẩm |
+| Phân tích nghiệp vụ | Phân tích nghiệp vụ | Phân tích và làm rõ yêu cầu |
+| Khách hàng | Người sử dụng | Đặt xe, theo dõi, thanh toán và đánh giá |
+| Tài xế | Người sử dụng | Nhận, thực hiện và hoàn thành chuyến |
+| Nhân viên vận hành | Vận hành | Giám sát và xử lý sự cố |
+| Kế toán / Tài chính | Tài chính | Quản lý doanh thu và giao dịch |
+| Quản trị hệ thống | Quản trị | Quản lý tài khoản, quyền và cấu hình |
+| Đội phát triển | Phát triển | Thiết kế, lập trình và kiểm thử |
+| Đội hạ tầng CNTT | Kỹ thuật | Quản lý hạ tầng, triển khai và giám sát |
+| An ninh / Tuân thủ | Bảo mật | Bảo mật, phân quyền và lưu vết |
+| Nhà cung cấp thanh toán | Bên ngoài | Xử lý thanh toán điện tử |
+| Nhà cung cấp bản đồ | Bên ngoài | Cung cấp vị trí và định tuyến |
+| Nhà cung cấp thông báo | Bên ngoài | Gửi thông báo |
 
 ---
 
-# 2. Stakeholder Influence Matrix
+# 2. MA TRẬN MỨC ĐỘ ẢNH HƯỞNG
 
-| Stakeholder | Ảnh hưởng | Quan tâm | Chiến lược |
+| Bên liên quan | Mức ảnh hưởng | Mức quan tâm | Chiến lược |
 |---|---|---|---|
 | Ban giám đốc | Cao | Cao | Quản lý chặt chẽ |
-| Product Owner | Cao | Cao | Quản lý chặt chẽ |
-| Business Analyst | Cao | Cao | Quản lý chặt chẽ |
+| Chủ sản phẩm | Cao | Cao | Quản lý chặt chẽ |
+| Phân tích nghiệp vụ | Cao | Cao | Quản lý chặt chẽ |
 | Quản lý vận hành | Cao | Cao | Quản lý chặt chẽ |
 | Kế toán / Tài chính | Cao | Cao | Quản lý chặt chẽ |
-| Security / Compliance | Cao | Cao | Quản lý chặt chẽ |
-| DevOps / IT | Cao | Cao | Phối hợp thường xuyên |
+| An ninh / Tuân thủ | Cao | Cao | Quản lý chặt chẽ |
+| Đội hạ tầng CNTT | Cao | Cao | Phối hợp thường xuyên |
 | Nhân viên vận hành | Cao | Cao | Phối hợp thường xuyên |
 | Khách hàng | Trung bình | Cao | Tham khảo và cập nhật |
 | Tài xế | Trung bình | Cao | Tham khảo và cập nhật |
 | Đội phát triển | Trung bình | Cao | Phối hợp thường xuyên |
-| Payment Provider | Trung bình | Trung bình | Duy trì hài lòng |
-| Map Provider | Trung bình | Trung bình | Duy trì hài lòng |
-| Notification Provider | Thấp - Trung bình | Trung bình | Theo dõi |
+| Nhà cung cấp thanh toán | Trung bình | Trung bình | Duy trì hài lòng |
+| Nhà cung cấp bản đồ | Trung bình | Trung bình | Duy trì hài lòng |
+| Nhà cung cấp thông báo | Thấp - Trung bình | Trung bình | Theo dõi |
 
 ---
 
-# 3. Business Goals
+# 3. MỤC TIÊU NGHIỆP VỤ
 
-| Mã | Business Goal |
+| Mã | Mục tiêu nghiệp vụ |
 |---|---|
 | BG01 | Xây dựng nền tảng CAB đặt xe trực tuyến |
 | BG02 | Nâng cao trải nghiệm khách hàng |
@@ -64,191 +64,73 @@
 | BG12 | Đảm bảo khả năng mở rộng |
 | BG13 | Đảm bảo tính ổn định |
 | BG14 | Đảm bảo bảo mật |
-| BG15 | Lưu vết Audit |
+| BG15 | Lưu vết thao tác |
 | BG16 | Linh hoạt phát triển trong tương lai |
 | BG17 | Chuẩn hóa nghiệp vụ |
 
 ---
 
-# 4. Business Boundary
+# 4. PHẠM VI NGHIỆP VỤ
 
-## 4.1 Business Domains
+## 4.1. Các miền nghiệp vụ
 
-| Mã | Business Domain | Phạm vi |
+| Mã | Miền nghiệp vụ | Phạm vi quản lý |
 |---|---|---|
-| B01 | User Management | Tài khoản, danh tính, quyền |
-| B02 | Driver & Vehicle | Tài xế, phương tiện, trạng thái, vị trí |
-| B03 | Booking & Trip | Đặt xe và vòng đời chuyến |
-| B04 | Driver Dispatch | Tìm và phân công tài xế |
-| B05 | Fare & Payment | Tính cước và thanh toán |
-| B06 | Notification | Gửi và quản lý thông báo |
-| B07 | Operations | Giám sát và xử lý vận hành |
-| B08 | Reporting | Báo cáo và thống kê |
+| B01 | Quản lý người dùng | Tài khoản, thông tin và quyền |
+| B02 | Quản lý tài xế & phương tiện | Tài xế, xe, trạng thái và vị trí |
+| B03 | Đặt xe & chuyến đi | Yêu cầu đặt xe và vòng đời chuyến |
+| B04 | Điều phối tài xế | Tìm và phân công tài xế |
+| B05 | Tính cước & thanh toán | Tính tiền và thanh toán |
+| B06 | Thông báo | Gửi và quản lý thông báo |
+| B07 | Vận hành | Giám sát và xử lý sự cố |
+| B08 | Báo cáo | Báo cáo và thống kê |
 
 ---
 
-## 4.2 B01 - User Management
+# 5. YÊU CẦU NGHIỆP VỤ
 
-**Phạm vi:** Quản lý tài khoản và danh tính người dùng.
-
-| Mã | Business con |
+| Mã | Yêu cầu nghiệp vụ |
 |---|---|
-| B01.01 | Đăng ký tài khoản |
-| B01.02 | Đăng nhập & xác thực |
-| B01.03 | Quản lý hồ sơ |
-| B01.04 | Phân quyền |
-| B01.05 | Trạng thái tài khoản |
-
----
-
-## 4.3 B02 - Driver & Vehicle
-
-**Phạm vi:** Quản lý tài xế, phương tiện và trạng thái hoạt động.
-
-| Mã | Business con |
-|---|---|
-| B02.01 | Hồ sơ tài xế |
-| B02.02 | Quản lý phương tiện |
-| B02.03 | Trạng thái tài xế |
-| B02.04 | Vị trí tài xế |
-| B02.05 | Lịch sử hoạt động |
-
----
-
-## 4.4 B03 - Booking & Trip
-
-**Phạm vi:** Quản lý yêu cầu đặt xe và vòng đời chuyến.
-
-| Mã | Business con |
-|---|---|
-| B03.01 | Tạo yêu cầu đặt xe |
-| B03.02 | Quản lý chuyến |
-| B03.03 | Cập nhật trạng thái |
-| B03.04 | Hủy / hoàn thành |
-| B03.05 | Lịch sử chuyến |
-
----
-
-## 4.5 B04 - Driver Dispatch
-
-**Phạm vi:** Tìm kiếm, lựa chọn và phân công tài xế.
-
-| Mã | Business con |
-|---|---|
-| B04.01 | Tìm tài xế |
-| B04.02 | Ưu tiên tài xế |
-| B04.03 | Gửi yêu cầu nhận chuyến |
-| B04.04 | Xử lý nhận / từ chối / timeout |
-| B04.05 | Điều phối lại |
-| B04.06 | Không tìm được tài xế |
-
----
-
-## 4.6 B05 - Fare & Payment
-
-**Phạm vi:** Tính cước và xử lý thanh toán.
-
-| Mã | Business con |
-|---|---|
-| B05.01 | Tính cước |
-| B05.02 | Chọn phương thức thanh toán |
-| B05.03 | Xử lý giao dịch |
-| B05.04 | Xử lý thanh toán thất bại |
-| B05.05 | Lịch sử giao dịch |
-| B05.06 | Đối soát |
-
----
-
-## 4.7 B06 - Notification
-
-**Phạm vi:** Quản lý và gửi thông báo.
-
-| Mã | Business con |
-|---|---|
-| B06.01 | Thông báo đặt xe |
-| B06.02 | Thông báo tài xế |
-| B06.03 | Thông báo trạng thái chuyến |
-| B06.04 | Thông báo thanh toán |
-| B06.05 | Quản lý kênh |
-
-**Kênh:** Push / SMS / Email
-
----
-
-## 4.8 B07 - Operations
-
-**Phạm vi:** Giám sát và xử lý hoạt động vận hành.
-
-| Mã | Business con |
-|---|---|
-| B07.01 | Giám sát chuyến |
-| B07.02 | Giám sát tài xế |
-| B07.03 | Hỗ trợ khách hàng |
-| B07.04 | Xử lý sự cố |
-| B07.05 | Hỗ trợ giao dịch |
-| B07.06 | Quản lý quyền nhân viên |
-
----
-
-## 4.9 B08 - Reporting
-
-**Phạm vi:** Tổng hợp dữ liệu phục vụ quản trị.
-
-| Mã | Business con |
-|---|---|
-| B08.01 | Báo cáo chuyến |
-| B08.02 | Báo cáo doanh thu |
-| B08.03 | Báo cáo hoàn thành |
-| B08.04 | Báo cáo hủy |
-| B08.05 | Hiệu quả tài xế |
-| B08.06 | Dashboard KPI |
-
----
-
-# 5. Business Requirements
-
-| Mã | Business Requirement |
-|---|---|
-| BR01 | Hỗ trợ đăng ký, đăng nhập, cập nhật và quản lý quyền người dùng |
+| BR01 | Hỗ trợ đăng ký, đăng nhập, cập nhật thông tin và quản lý quyền người dùng |
 | BR02 | Quản lý hồ sơ tài xế, phương tiện và trạng thái hoạt động |
 | BR03 | Quản lý vị trí tài xế phục vụ điều phối và theo dõi |
 | BR04 | Cho phép khách hàng tạo yêu cầu đặt xe |
 | BR05 | Quản lý vòng đời chuyến từ tạo đến hoàn thành hoặc hủy |
 | BR06 | Cho phép theo dõi trạng thái và thông tin chuyến |
 | BR07 | Tự động tìm và ưu tiên tài xế phù hợp |
-| BR08 | Tự động tìm tài xế khác khi từ chối hoặc timeout |
+| BR08 | Tự động tìm tài xế khác khi tài xế từ chối hoặc không phản hồi |
 | BR09 | Thông báo khi không tìm được tài xế |
 | BR10 | Tính số tiền khách hàng phải trả |
 | BR11 | Hỗ trợ thanh toán tiền mặt và điện tử |
-| BR12 | Xử lý và retry khi thanh toán thất bại |
+| BR12 | Xử lý và thực hiện lại khi thanh toán thất bại |
 | BR13 | Gửi thông báo đến khách hàng và tài xế |
 | BR14 | Hỗ trợ nhân viên giám sát và xử lý sự cố |
-| BR15 | Cung cấp báo cáo chuyến, doanh thu và tài xế |
+| BR15 | Cung cấp báo cáo chuyến, doanh thu và hiệu quả tài xế |
 | BR16 | Xác thực, phân quyền và bảo vệ dữ liệu |
 | BR17 | Hỗ trợ mở rộng hệ thống và bổ sung dịch vụ |
 | BR18 | Lưu vết các thao tác quan trọng |
 
 ---
 
-# 6. Business Process
+# 6. QUY TRÌNH NGHIỆP VỤ
 
-> Quy trình được tối giản thành **7 quy trình chính**.
+> Quy trình được tối giản thành **7 quy trình chính** để thuận tiện cho việc phát triển hệ thống.
 
-| Mã | Quy trình | Các bước |
+| Mã | Quy trình | Các bước chính |
 |---|---|---|
-| BP01 | Quản lý tài khoản | Đăng ký / đăng nhập → Xác thực → Quản lý tài khoản |
-| BP02 | Đặt & quản lý chuyến | Tạo yêu cầu → Tiếp nhận → Theo dõi → Hủy / Hoàn thành |
-| BP03 | Điều phối tài xế | Tìm tài xế → Gửi chuyến → Nhận / Từ chối → Điều phối lại |
-| BP04 | Thực hiện chuyến | Nhận chuyến → Đón khách → Di chuyển → Hoàn thành |
-| BP05 | Tính cước & thanh toán | Tính cước → Thanh toán → Ghi nhận kết quả |
-| BP06 | Hậu chuyến | Xem lịch sử → Xem cước → Đánh giá |
-| BP07 | Vận hành & báo cáo | Giám sát → Xử lý → Audit → Báo cáo |
+| QT01 | Quản lý tài khoản | Đăng ký / Đăng nhập → Xác thực → Quản lý tài khoản |
+| QT02 | Đặt và quản lý chuyến | Tạo yêu cầu → Tiếp nhận → Theo dõi → Hủy / Hoàn thành |
+| QT03 | Điều phối tài xế | Tìm tài xế → Gửi yêu cầu → Nhận / Từ chối → Điều phối lại |
+| QT04 | Thực hiện chuyến | Nhận chuyến → Đón khách → Di chuyển → Hoàn thành |
+| QT05 | Tính cước và thanh toán | Tính cước → Thanh toán → Ghi nhận kết quả |
+| QT06 | Xử lý sau chuyến | Xem lịch sử → Xem cước → Đánh giá |
+| QT07 | Vận hành và báo cáo | Giám sát → Xử lý → Lưu vết → Báo cáo |
 
 ---
 
-# 7. Functional Requirements
+# 7. YÊU CẦU CHỨC NĂNG
 
-| Mã | Functional Requirement | BR |
+| Mã | Yêu cầu chức năng | BR liên quan |
 |---|---|---|
 | FR01 | Đăng ký, đăng nhập và quản lý tài khoản | BR01 |
 | FR02 | Quản lý tài xế và phương tiện | BR02 |
@@ -256,131 +138,131 @@
 | FR04 | Tạo và quản lý chuyến | BR04, BR05 |
 | FR05 | Theo dõi trạng thái chuyến | BR06 |
 | FR06 | Tự động tìm và phân công tài xế | BR07 |
-| FR07 | Xử lý từ chối, timeout và điều phối lại | BR08, BR09 |
+| FR07 | Xử lý từ chối, không phản hồi và điều phối lại | BR08, BR09 |
 | FR08 | Tính cước chuyến | BR10 |
 | FR09 | Xử lý thanh toán | BR11, BR12 |
 | FR10 | Gửi thông báo | BR13 |
 | FR11 | Quản lý vận hành | BR14 |
 | FR12 | Báo cáo và thống kê | BR15 |
 | FR13 | Phân quyền và bảo mật | BR16 |
-| FR14 | Lưu và tra cứu Audit Log | BR18 |
+| FR14 | Lưu và tra cứu nhật ký hệ thống | BR18 |
 
 ---
 
-# 8. Roles
+# 8. VAI TRÒ
 
-| Role | Nhiệm vụ |
+| Vai trò | Nhiệm vụ |
 |---|---|
 | Khách hàng | Đặt xe, theo dõi, thanh toán, đánh giá |
 | Tài xế | Nhận và thực hiện chuyến |
 | Nhân viên vận hành | Giám sát và xử lý sự cố |
 | Quản trị viên | Quản lý tài khoản và phân quyền |
 | Kế toán | Quản lý giao dịch và doanh thu |
-| Hệ thống | Điều phối, tính cước, gửi thông báo |
-| Payment Provider | Xử lý thanh toán |
-| Map Provider | Cung cấp vị trí và định tuyến |
-| Notification Provider | Gửi thông báo |
+| Hệ thống | Điều phối, tính cước và gửi thông báo |
+| Nhà cung cấp thanh toán | Xử lý thanh toán điện tử |
+| Nhà cung cấp bản đồ | Cung cấp vị trí và định tuyến |
+| Nhà cung cấp thông báo | Gửi thông báo |
 
 ---
 
-# 9. Exceptions
+# 9. NGOẠI LỆ
 
-| Mã | Exception | Xử lý |
+| Mã | Ngoại lệ | Xử lý |
 |---|---|---|
 | EX01 | Không tìm được tài xế | Thông báo khách hàng |
-| EX02 | Tài xế từ chối | Điều phối tài xế khác |
-| EX03 | Tài xế timeout | Điều phối tài xế khác |
-| EX04 | Khách hủy chuyến | Xử lý theo chính sách |
-| EX05 | Thanh toán thất bại | Thông báo và retry |
-| EX06 | Mất kết nối | Đồng bộ lại khi kết nối |
-| EX07 | Lỗi thông báo | Retry, không dừng đặt xe |
-| EX08 | Lỗi hệ thống | Ghi log và xử lý |
+| EX02 | Tài xế từ chối | Tìm tài xế khác |
+| EX03 | Tài xế không phản hồi | Hết thời gian → Tìm tài xế khác |
+| EX04 | Khách hàng hủy chuyến | Xử lý theo chính sách |
+| EX05 | Thanh toán thất bại | Thông báo → Thực hiện lại |
+| EX06 | Mất kết nối | Đồng bộ lại khi có kết nối |
+| EX07 | Lỗi thông báo | Thực hiện lại, không dừng đặt xe |
+| EX08 | Lỗi hệ thống | Ghi nhật ký → Xử lý sự cố |
 
 ---
 
-# 10. Non-Functional Requirements
+# 10. YÊU CẦU PHI CHỨC NĂNG
 
 | Mã | Nhóm | Yêu cầu |
 |---|---|---|
-| NFR01 | Performance | Đáp ứng tốt khi có nhiều yêu cầu đồng thời |
-| NFR02 | Scalability | Có thể mở rộng khi tải tăng |
-| NFR03 | Availability | Lỗi một thành phần không làm dừng toàn hệ thống |
-| NFR04 | Security | Bảo vệ dữ liệu và kiểm soát truy cập |
-| NFR05 | Reliability | Đảm bảo dữ liệu chuyến và giao dịch chính xác |
-| NFR06 | Maintainability | Dễ bảo trì và triển khai |
-| NFR07 | Auditability | Lưu vết thao tác quan trọng |
-| NFR08 | Extensibility | Dễ thêm dịch vụ, thanh toán và thông báo |
+| NFR01 | Hiệu năng | Đáp ứng tốt khi có nhiều yêu cầu đồng thời |
+| NFR02 | Khả năng mở rộng | Có thể mở rộng khi số lượng người dùng tăng |
+| NFR03 | Tính sẵn sàng | Lỗi một thành phần không làm dừng toàn hệ thống |
+| NFR04 | Bảo mật | Bảo vệ dữ liệu và kiểm soát quyền truy cập |
+| NFR05 | Độ tin cậy | Đảm bảo dữ liệu chuyến và giao dịch chính xác |
+| NFR06 | Khả năng bảo trì | Dễ bảo trì và triển khai chức năng mới |
+| NFR07 | Khả năng kiểm tra | Lưu vết các thao tác quan trọng |
+| NFR08 | Khả năng mở rộng chức năng | Dễ thêm dịch vụ, thanh toán và kênh thông báo |
 
 ---
 
-# 11. Entities
+# 11. THỰC THỂ
 
-| Mã | Entity | Mục đích |
+| Mã | Thực thể | Mục đích |
 |---|---|---|
-| E01 | User | Tài khoản người dùng |
-| E02 | Driver | Thông tin tài xế |
-| E03 | Vehicle | Thông tin phương tiện |
-| E04 | VehicleType | Loại xe |
-| E05 | DriverLocation | Vị trí tài xế |
-| E06 | Booking | Yêu cầu đặt xe |
-| E07 | Trip | Chuyến đi |
-| E08 | Fare | Thông tin cước |
-| E09 | Payment | Thanh toán |
-| E10 | Notification | Thông báo |
-| E11 | Rating | Đánh giá |
-| E12 | AuditLog | Nhật ký hệ thống |
+| E01 | Người dùng | Quản lý tài khoản |
+| E02 | Tài xế | Thông tin tài xế |
+| E03 | Phương tiện | Thông tin xe |
+| E04 | Loại xe | Phân loại phương tiện |
+| E05 | Vị trí tài xế | Lưu vị trí |
+| E06 | Yêu cầu đặt xe | Thông tin yêu cầu |
+| E07 | Chuyến đi | Thông tin chuyến |
+| E08 | Cước phí | Thông tin tính tiền |
+| E09 | Thanh toán | Thông tin giao dịch |
+| E10 | Thông báo | Thông tin thông báo |
+| E11 | Đánh giá | Đánh giá tài xế |
+| E12 | Nhật ký hệ thống | Lưu vết thao tác |
 
 ---
 
-# 12. Entity Relationships
+# 12. QUAN HỆ GIỮA CÁC THỰC THỂ
 
-| Entity | Quan hệ | Entity |
+| Thực thể | Quan hệ | Thực thể |
 |---|---|---|
-| User | 1 - 1 | Driver |
-| Driver | 1 - N | Vehicle |
-| VehicleType | 1 - N | Vehicle |
-| Driver | 1 - N | DriverLocation |
-| User | 1 - N | Booking |
-| Booking | 1 - 1 | Trip |
-| Driver | 1 - N | Trip |
-| Trip | 1 - 1 | Fare |
-| Trip | 1 - 1 | Payment |
-| User | 1 - N | Notification |
-| User | 1 - N | Rating |
-| Trip | 1 - 1 | Rating |
-| User | 1 - N | AuditLog |
+| Người dùng | 1 - 1 | Tài xế |
+| Tài xế | 1 - N | Phương tiện |
+| Loại xe | 1 - N | Phương tiện |
+| Tài xế | 1 - N | Vị trí tài xế |
+| Người dùng | 1 - N | Yêu cầu đặt xe |
+| Yêu cầu đặt xe | 1 - 1 | Chuyến đi |
+| Tài xế | 1 - N | Chuyến đi |
+| Chuyến đi | 1 - 1 | Cước phí |
+| Chuyến đi | 1 - 1 | Thanh toán |
+| Người dùng | 1 - N | Thông báo |
+| Người dùng | 1 - N | Đánh giá |
+| Chuyến đi | 1 - 1 | Đánh giá |
+| Người dùng | 1 - N | Nhật ký hệ thống |
 
 ---
 
-# 13. Use Cases
+# 13. USE CASE
 
-| Mã | Use Case | Actor | FR |
-|---|---|---|---|
-| UC01 | Quản lý tài khoản | Khách hàng, Tài xế, Admin | FR01 |
-| UC02 | Quản lý tài xế & phương tiện | Tài xế, Operations | FR02 |
-| UC03 | Quản lý vị trí tài xế | Tài xế, Hệ thống | FR03 |
-| UC04 | Đặt xe | Khách hàng | FR04 |
-| UC05 | Quản lý & theo dõi chuyến | Khách hàng, Tài xế, Operations | FR05 |
-| UC06 | Điều phối tài xế | Hệ thống, Tài xế | FR06, FR07 |
-| UC07 | Tính cước | Hệ thống | FR08 |
-| UC08 | Thanh toán | Khách hàng, Payment Provider | FR09 |
-| UC09 | Gửi thông báo | Hệ thống, Notification Provider | FR10 |
-| UC10 | Quản lý vận hành | Operations | FR11 |
-| UC11 | Báo cáo & thống kê | Quản lý, Kế toán | FR12 |
-| UC12 | Phân quyền & bảo mật | Admin | FR13 |
-| UC13 | Audit hệ thống | Admin, Security | FR14 |
-| UC14 | Đánh giá tài xế | Khách hàng | FR05 |
+| Mã | Ca sử dụng | Tác nhân |
+|---|---|---|
+| UC01 | Quản lý tài khoản | Khách hàng, Tài xế, Quản trị viên |
+| UC02 | Quản lý tài xế & phương tiện | Tài xế, Nhân viên vận hành |
+| UC03 | Quản lý vị trí tài xế | Tài xế, Hệ thống |
+| UC04 | Đặt xe | Khách hàng |
+| UC05 | Quản lý & theo dõi chuyến | Khách hàng, Tài xế, Nhân viên vận hành |
+| UC06 | Điều phối tài xế | Hệ thống, Tài xế |
+| UC07 | Tính cước | Hệ thống |
+| UC08 | Thanh toán | Khách hàng, Nhà cung cấp thanh toán |
+| UC09 | Gửi thông báo | Hệ thống, Nhà cung cấp thông báo |
+| UC10 | Quản lý vận hành | Nhân viên vận hành |
+| UC11 | Báo cáo & thống kê | Quản lý, Kế toán |
+| UC12 | Phân quyền & bảo mật | Quản trị viên |
+| UC13 | Lưu vết hệ thống | Quản trị viên, An ninh |
+| UC14 | Đánh giá tài xế | Khách hàng |
 
 ---
 
-# 14. Main Use Case Flow
+# 14. LUỒNG NGHIỆP VỤ CHÍNH
 
 ```text
 Khách hàng
     ↓
 Đặt xe
     ↓
-Điều phối tài xế
+Tìm & phân công tài xế
     ↓
 Tài xế nhận chuyến
     ↓
@@ -391,4 +273,3 @@ Tính cước
 Thanh toán
     ↓
 Đánh giá
-
