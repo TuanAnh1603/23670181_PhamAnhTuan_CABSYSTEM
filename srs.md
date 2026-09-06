@@ -269,24 +269,118 @@
 | FR13 | Kiểm soát quyền và bảo vệ dữ liệu | BR16 |
 | FR14 | Lưu và tra cứu nhật ký hệ thống | BR18 |
 
-## Traceability
+8 Role & Exception
 
-| BR | FR |
+## Role
+
+| Role | Nhiệm vụ |
 |---|---|
-| BR01 | FR01 |
-| BR02 | FR02 |
-| BR03 | FR03 |
-| BR04, BR05 | FR04 |
-| BR06 | FR05 |
-| BR07 | FR06 |
-| BR08, BR09 | FR07 |
-| BR10 | FR08 |
-| BR11, BR12 | FR09 |
-| BR13 | FR10 |
-| BR14 | FR11 |
-| BR15 | FR12 |
-| BR16 | FR13 |
-| BR18 | FR14 |
+| Khách hàng | Đặt xe, theo dõi chuyến, thanh toán, đánh giá |
+| Tài xế | Nhận chuyến, cập nhật trạng thái, hoàn thành chuyến |
+| Nhân viên vận hành | Giám sát và xử lý sự cố |
+| Quản trị viên | Quản lý tài khoản và phân quyền |
+| Kế toán | Quản lý giao dịch và doanh thu |
+| Hệ thống | Điều phối, tính cước và gửi thông báo |
+| Payment Provider | Xử lý thanh toán điện tử |
+| Map Provider | Cung cấp vị trí và định tuyến |
+| Notification Provider | Gửi thông báo |
 
-> Tổng cộng: **14 Functional Requirements (FR)**.
+## Exception
+
+| Mã | Exception | Xử lý |
+|---|---|---|
+| EX01 | Không tìm được tài xế | Thông báo khách hàng |
+| EX02 | Tài xế từ chối | Tìm tài xế khác |
+| EX03 | Tài xế không phản hồi | Timeout và tìm tài xế khác |
+| EX04 | Khách hủy chuyến | Cập nhật theo chính sách |
+| EX05 | Thanh toán thất bại | Thông báo và retry |
+| EX06 | Mất kết nối | Đồng bộ lại khi kết nối |
+| EX07 | Lỗi thông báo | Retry, không dừng đặt xe |
+| EX08 | Lỗi hệ thống | Ghi log và xử lý sự cố |
+
+9 Non-Functional Requirements (NFR)
+
+| Mã | Nhóm | Yêu cầu |
+|---|---|---|
+| NFR01 | Performance | Đáp ứng nhanh khi có nhiều yêu cầu đặt xe đồng thời |
+| NFR02 | Scalability | Có thể mở rộng hệ thống khi số lượng người dùng tăng |
+| NFR03 | Availability | Lỗi thanh toán/thông báo không làm dừng hệ thống đặt xe |
+| NFR04 | Security | Bảo vệ dữ liệu và kiểm soát quyền truy cập |
+| NFR05 | Reliability | Đảm bảo dữ liệu chuyến đi và thanh toán chính xác |
+| NFR06 | Maintainability | Dễ bảo trì và triển khai chức năng mới |
+| NFR07 | Auditability | Lưu vết các thao tác quan trọng |
+| NFR08 | Extensibility | Dễ bổ sung dịch vụ, thanh toán và kênh thông báo |
+
+10 Entity - Thực thể
+
+| Mã | Entity | Mục đích |
+|---|---|---|
+| E01 | User | Quản lý tài khoản |
+| E02 | Driver | Thông tin tài xế |
+| E03 | Vehicle | Thông tin phương tiện |
+| E04 | VehicleType | Loại xe |
+| E05 | DriverLocation | Vị trí tài xế |
+| E06 | Booking | Yêu cầu đặt xe |
+| E07 | Trip | Chuyến đi |
+| E08 | Fare | Thông tin cước |
+| E09 | Payment | Thanh toán |
+| E10 | Notification | Thông báo |
+| E11 | Rating | Đánh giá |
+| E12 | AuditLog | Lịch sử thao tác |
+
+# Entity Relationships
+
+| Entity | Quan hệ | Entity |
+|---|---|---|
+| User | 1 - 1 | Driver |
+| Driver | 1 - N | Vehicle |
+| VehicleType | 1 - N | Vehicle |
+| Driver | 1 - N | DriverLocation |
+| User | 1 - N | Booking |
+| Booking | 1 - 1 | Trip |
+| Driver | 1 - N | Trip |
+| Trip | 1 - 1 | Fare |
+| Trip | 1 - 1 | Payment |
+| User | 1 - N | Notification |
+| User | 1 - N | Rating |
+| Trip | 1 - 1 | Rating |
+| User | 1 - N | AuditLog |
+
+11 Use Case - CAB System
+
+| Mã | Use Case | Actor chính | FR |
+|---|---|---|---|
+| UC01 | Quản lý tài khoản | Khách hàng, Tài xế, Admin | FR01 |
+| UC02 | Quản lý tài xế & phương tiện | Tài xế, Nhân viên vận hành | FR02 |
+| UC03 | Quản lý vị trí tài xế | Tài xế, Hệ thống | FR03 |
+| UC04 | Đặt xe | Khách hàng | FR04 |
+| UC05 | Quản lý & theo dõi chuyến | Khách hàng, Tài xế, Nhân viên vận hành | FR05 |
+| UC06 | Điều phối tài xế | Hệ thống, Tài xế | FR06, FR07 |
+| UC07 | Tính cước | Hệ thống | FR08 |
+| UC08 | Thanh toán | Khách hàng, Payment Provider | FR09 |
+| UC09 | Gửi thông báo | Hệ thống, Notification Provider | FR10 |
+| UC10 | Quản lý vận hành | Nhân viên vận hành | FR11 |
+| UC11 | Báo cáo & thống kê | Quản lý, Kế toán | FR12 |
+| UC12 | Quản lý quyền & bảo mật | Admin | FR13 |
+| UC13 | Audit hệ thống | Admin, Security | FR14 |
+| UC14 | Đánh giá tài xế | Khách hàng | FR05 |
+
+## Actors
+
+| Actor | Vai trò |
+|---|---|
+| Khách hàng | Đặt và sử dụng dịch vụ |
+| Tài xế | Nhận và thực hiện chuyến |
+| Nhân viên vận hành | Giám sát và xử lý sự cố |
+| Quản trị viên | Quản lý hệ thống và phân quyền |
+| Quản lý / Kế toán | Theo dõi báo cáo và doanh thu |
+| Payment Provider | Xử lý thanh toán |
+| Notification Provider | Gửi thông báo |
+| Hệ thống | Tự động điều phối, tính cước và xử lý nghiệp vụ |
+
+## Use Case Flow
+
+Khách hàng → UC04 Đặt xe → UC06 Điều phối tài xế → UC05 Thực hiện chuyến → UC07 Tính cước → UC08 Thanh toán → UC14 Đánh giá
+
+> Timeout, từ chối tài xế, retry thanh toán và lỗi thông báo được xử lý trong luồng ngoại lệ của Use Case, không tách thành Use Case riêng.
 
