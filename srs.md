@@ -296,7 +296,6 @@ Một FR được xem là **Đạt** khi:
 > **FR = Hệ thống phải làm gì**  
 > **AC = Điều kiện để xác nhận FR đã làm đúng và được nghiệm thu**
 
-
 # LUỒNG NGHIỆP VỤ CHÍNH
 
 ```text
