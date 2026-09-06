@@ -254,28 +254,51 @@
 | UC14 | Đánh giá tài xế | Khách hàng |
 
 ---
-# 14. Acceptance Criteria (AC)
+# 13. Acceptance Criteria (AC)
 
-> AC (Acceptance Criteria) là các tiêu chí dùng để xác định một Functional Requirement (FR) đã được thực hiện đúng và đủ để nghiệm thu.
+> AC là tiêu chí dùng để xác định Functional Requirement (FR) đã được thực hiện đúng và đủ để nghiệm thu.
 
-| Mã FR | Functional Requirement | Tiêu chí chấp nhận (AC) |
+| Mã AC | Mã FR | Tiêu chí chấp nhận |
 |---|---|---|
-| FR01 | Quản lý tài khoản | Người dùng đăng ký, đăng nhập và cập nhật thông tin thành công. Thông tin không hợp lệ phải bị từ chối. |
-| FR02 | Quản lý tài xế & phương tiện | Nhân viên có thể tạo và cập nhật hồ sơ tài xế, phương tiện và trạng thái hoạt động. |
-| FR03 | Quản lý vị trí tài xế | Hệ thống cập nhật được vị trí tài xế và sử dụng vị trí để phục vụ điều phối. |
-| FR04 | Đặt xe | Khách hàng nhập điểm đón, điểm đến, loại xe và tạo yêu cầu thành công. |
-| FR05 | Theo dõi chuyến | Khách hàng xem được trạng thái chuyến và trạng thái được cập nhật đúng theo quá trình thực hiện. |
-| FR06 | Tìm & phân công tài xế | Hệ thống tìm được tài xế phù hợp và gửi yêu cầu nhận chuyến. |
-| FR07 | Xử lý từ chối / timeout | Khi tài xế từ chối hoặc không phản hồi, hệ thống tự động tìm tài xế khác. Nếu không còn tài xế, hệ thống thông báo cho khách hàng. |
-| FR08 | Tính cước | Sau khi chuyến hoàn thành, hệ thống tính và hiển thị đúng số tiền theo chính sách cước. |
-| FR09 | Thanh toán | Khách hàng thanh toán được bằng tiền mặt hoặc điện tử. Giao dịch phải có trạng thái rõ ràng. |
-| FR10 | Gửi thông báo | Khách hàng và tài xế nhận được thông báo khi xảy ra các sự kiện quan trọng. |
-| FR11 | Quản lý vận hành | Nhân viên vận hành có thể xem chuyến, tài xế và xử lý các trường hợp bất thường theo quyền. |
-| FR12 | Báo cáo & thống kê | Hệ thống tạo được báo cáo về số chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế. |
-| FR13 | Quyền & bảo mật | Người dùng chỉ được thực hiện chức năng đúng với quyền được cấp. |
-| FR14 | Audit | Các thao tác quan trọng được ghi nhận để có thể tra cứu người thực hiện, thời gian và hành động. |
+| AC01 | FR01 | Đăng ký, đăng nhập và cập nhật tài khoản thành công; dữ liệu không hợp lệ bị từ chối. |
+| AC02 | FR02 | Có thể tạo/cập nhật hồ sơ tài xế, phương tiện và trạng thái hoạt động. |
+| AC03 | FR03 | Vị trí tài xế được cập nhật và sử dụng cho điều phối. |
+| AC04 | FR04 | Khách hàng nhập điểm đón, điểm đến, loại xe và tạo yêu cầu thành công. |
+| AC05 | FR05 | Khách hàng xem được trạng thái chuyến và trạng thái được cập nhật chính xác. |
+| AC06 | FR06 | Hệ thống tìm được tài xế phù hợp và gửi yêu cầu nhận chuyến. |
+| AC07 | FR07 | Tài xế từ chối hoặc không phản hồi thì hệ thống tự động tìm tài xế khác. |
+| AC08 | FR07 | Không còn tài xế phù hợp thì hệ thống thông báo cho khách hàng. |
+| AC09 | FR08 | Chuyến hoàn thành thì hệ thống tính và hiển thị đúng số tiền phải trả. |
+| AC10 | FR09 | Khách hàng thanh toán được bằng tiền mặt hoặc điện tử; giao dịch có trạng thái rõ ràng. |
+| AC11 | FR09 | Thanh toán thất bại thì hệ thống thông báo và cho phép xử lý lại theo chính sách. |
+| AC12 | FR10 | Khách hàng và tài xế nhận được thông báo về các sự kiện quan trọng. |
+| AC13 | FR11 | Nhân viên vận hành có thể xem và xử lý chuyến, tài xế và trường hợp bất thường theo quyền. |
+| AC14 | FR12 | Hệ thống tạo được báo cáo về chuyến, doanh thu, hoàn thành, hủy và hiệu quả tài xế. |
+| AC15 | FR13 | Người dùng chỉ được thực hiện chức năng phù hợp với quyền được cấp. |
+| AC16 | FR13 | Dữ liệu cá nhân, vị trí và giao dịch được bảo vệ khỏi truy cập trái phép. |
+| AC17 | FR14 | Các thao tác quan trọng được lưu người thực hiện, thời gian và hành động. |
+| AC18 | FR14 | Người có quyền có thể tra cứu Audit Log khi cần kiểm tra sự cố. |
 
-## Nguyên tắc nghiệm thu
+## 13.1 Mapping FR - AC
+
+| Functional Requirement | Acceptance Criteria |
+|---|---|
+| FR01 | AC01 |
+| FR02 | AC02 |
+| FR03 | AC03 |
+| FR04 | AC04 |
+| FR05 | AC05 |
+| FR06 | AC06 |
+| FR07 | AC07, AC08 |
+| FR08 | AC09 |
+| FR09 | AC10, AC11 |
+| FR10 | AC12 |
+| FR11 | AC13 |
+| FR12 | AC14 |
+| FR13 | AC15, AC16 |
+| FR14 | AC17, AC18 |
+
+## 13.2 Nguyên tắc nghiệm thu
 
 Một FR được xem là **Đạt** khi:
 
@@ -285,16 +308,45 @@ Một FR được xem là **Đạt** khi:
 4. Dữ liệu được lưu và hiển thị chính xác.
 5. Các trường hợp ngoại lệ quan trọng được xử lý đúng.
 
-## Ví dụ AC - FR07
-
-**FR07 - Xử lý từ chối / timeout**
-
-- Tài xế A từ chối → hệ thống tìm tài xế B.
-- Tài xế A không phản hồi hết thời gian quy định → hệ thống tìm tài xế B.
-- Không còn tài xế phù hợp → hệ thống thông báo cho khách hàng.
-
 > **FR = Hệ thống phải làm gì**  
-> **AC = Điều kiện để xác nhận FR đã làm đúng và được nghiệm thu**
+> **AC = Điều kiện để xác nhận FR đã làm đúng và được nghiệm thu.**
+
+
+# 15. Requirements Traceability Matrix (RTM) bảng truy vết 
+
+> Bảng truy vết dùng để kiểm tra mối liên hệ giữa mục tiêu nghiệp vụ, yêu cầu nghiệp vụ, yêu cầu chức năng, tiêu chí chấp nhận, Use Case và quy trình nghiệp vụ.
+
+| BG | BR | FR | AC | UC | BP |
+|---|---|---|---|---|---|
+| BG01, BG02 | BR01 | FR01 | AC01 | UC01 | BP01 |
+| BG05 | BR02 | FR02 | AC02 | UC02 | BP04 |
+| BG05, BG06 | BR03 | FR03 | AC03 | UC03 | BP03, BP04 |
+| BG02 | BR04 | FR04 | AC04 | UC04 | BP02 |
+| BG02, BG06 | BR05 | FR05 | AC05 | UC05 | BP02, BP04 |
+| BG03, BG04 | BR07 | FR06 | AC06 | UC06 | BP03 |
+| BG03, BG04 | BR08 | FR07 | AC07, AC08 | UC06 | BP03 |
+| BG07 | BR10 | FR08 | AC09 | UC07 | BP05 |
+| BG07, BG08 | BR11 | FR09 | AC10, AC11 | UC08 | BP05 |
+| BG09 | BR13 | FR10 | AC12 | UC09 | BP02, BP03, BP04, BP05 |
+| BG10, BG14 | BR14 | FR11 | AC13 | UC10 | BP07 |
+| BG11 | BR15 | FR12 | AC14 | UC11 | BP07 |
+| BG14 | BR16 | FR13 | AC15, AC16 | UC12 | BP01, BP07 |
+| BG15 | BR18 | FR14 | AC17, AC18 | UC13 | BP07 |
+
+## 14.1 Quy tắc truy vết
+
+```text
+Business Goal
+      ↓
+Business Requirement
+      ↓
+Functional Requirement
+      ↓
+Acceptance Criteria
+      ↓
+Use Case
+      ↓
+Business Process
 
 # LUỒNG NGHIỆP VỤ CHÍNH
 
