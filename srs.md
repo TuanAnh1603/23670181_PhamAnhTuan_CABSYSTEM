@@ -370,44 +370,95 @@ Tổng hợp dữ liệu nghiệp vụ để phục vụ quản trị, theo dõi
 | B08.05 | Báo cáo tài xế | Driver Performance |
 | B08.06 | Dashboard | KPI vận hành |
 
+
+
+
+
+#5 CAB System - Business Requirements
+
+## 1. User Management
+
+### BR01 - Quản lý người dùng
+Hệ thống phải hỗ trợ đăng ký, đăng nhập, cập nhật thông tin và quản lý quyền người dùng.
+
 ---
 
-# 11. Business Boundary Diagram
+## 2. Driver & Vehicle
 
-```mermaid
-flowchart TB
+### BR02 - Quản lý tài xế và phương tiện
+Hệ thống phải hỗ trợ quản lý hồ sơ tài xế, phương tiện và trạng thái sẵn sàng nhận chuyến.
 
-    CAB["CAB PLATFORM"]
+### BR03 - Quản lý vị trí tài xế
+Hệ thống phải quản lý vị trí tài xế để phục vụ điều phối và theo dõi chuyến.
 
-    B01["B01<br/>User Management"]
-    B02["B02<br/>Driver & Vehicle"]
-    B03["B03<br/>Booking & Trip"]
-    B04["B04<br/>Driver Dispatch"]
-    B05["B05<br/>Fare & Payment"]
-    B06["B06<br/>Notification"]
-    B07["B07<br/>Operations"]
-    B08["B08<br/>Reporting"]
+---
 
-    CAB --> B01
-    CAB --> B02
-    CAB --> B03
-    CAB --> B04
-    CAB --> B05
-    CAB --> B06
-    CAB --> B07
-    CAB --> B08
+## 3. Booking & Trip
 
-    B03 --> B04
-    B04 --> B02
-    B03 --> B05
-    B03 --> B06
-    B05 --> B06
-    B07 --> B03
-    B07 --> B02
+### BR04 - Đặt xe
+Hệ thống phải cho phép khách hàng tạo yêu cầu đặt xe với điểm đón, điểm đến và loại xe.
 
-    B03 --> B08
-    B04 --> B08
-    B05 --> B08
-    B02 --> B08
+### BR05 - Quản lý chuyến đi
+Hệ thống phải quản lý toàn bộ vòng đời chuyến đi từ tạo yêu cầu đến hoàn thành hoặc hủy.
+
+### BR06 - Theo dõi chuyến
+Hệ thống phải cho phép khách hàng và nhân viên vận hành theo dõi trạng thái và thông tin chuyến.
+
+---
+
+## 4. Driver Dispatch
+
+### BR07 - Tự động tìm và phân công tài xế
+Hệ thống phải tự động tìm và ưu tiên tài xế phù hợp dựa trên vị trí, trạng thái và tiêu chí vận hành.
+
+### BR08 - Xử lý tài xế từ chối hoặc không phản hồi
+Hệ thống phải tiếp tục tìm tài xế khác khi tài xế không phản hồi hoặc từ chối chuyến.
+
+### BR09 - Xử lý không tìm được tài xế
+Hệ thống phải thông báo rõ ràng cho khách hàng khi không tìm được tài xế.
+
+---
+
+## 5. Fare & Payment
+
+### BR10 - Tính cước
+Hệ thống phải xác định số tiền khách hàng phải trả theo chính sách tính cước của doanh nghiệp.
+
+### BR11 - Thanh toán
+Hệ thống phải hỗ trợ thanh toán tiền mặt và thanh toán điện tử thông qua nhà cung cấp bên ngoài.
+
+### BR12 - Xử lý thanh toán thất bại
+Hệ thống phải thông báo kết quả và hỗ trợ xử lý lại giao dịch khi thanh toán thất bại.
+
+---
+
+## 6. Notification
+
+### BR13 - Thông báo
+Hệ thống phải thông báo cho khách hàng và tài xế về các sự kiện quan trọng của chuyến đi và thanh toán.
+
+---
+
+## 7. Operations & Reporting
+
+### BR14 - Quản lý vận hành
+Hệ thống phải cung cấp chức năng để nhân viên vận hành giám sát, tra cứu và xử lý các trường hợp bất thường.
+
+### BR15 - Báo cáo
+Hệ thống phải cung cấp báo cáo về chuyến đi, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế.
+
+---
+
+## 8. Security & Scalability
+
+### BR16 - Bảo mật và kiểm soát truy cập
+Hệ thống phải bảo vệ dữ liệu và kiểm soát quyền truy cập đối với các chức năng nhạy cảm.
+
+### BR17 - Khả năng mở rộng
+Hệ thống phải cho phép mở rộng quy mô, bổ sung dịch vụ, phương thức thanh toán và kênh thông báo mà hạn chế ảnh hưởng đến hệ thống hiện tại.
+
+### BR18 - Audit
+Hệ thống phải lưu vết các thao tác quan trọng để phục vụ kiểm tra và xử lý sự cố.
+
 
 
