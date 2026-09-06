@@ -438,65 +438,43 @@ Các nội dung cần Business Analyst xác nhận với khách hàng:
 | 10 | Thời gian lưu Audit Log |
 
 ---
+7 Functional Requirements (FR)
 
-# 13. Tổng kết cấu trúc
+| Mã FR | Functional Requirement | BR |
+|---|---|---|
+| FR01 | Đăng ký, đăng nhập và quản lý tài khoản | BR01 |
+| FR02 | Quản lý hồ sơ, phương tiện và trạng thái tài xế | BR02 |
+| FR03 | Cập nhật và quản lý vị trí tài xế | BR03 |
+| FR04 | Tạo và quản lý chuyến đi | BR04, BR05 |
+| FR05 | Theo dõi và cập nhật trạng thái chuyến | BR06 |
+| FR06 | Tự động tìm và phân công tài xế | BR07 |
+| FR07 | Xử lý từ chối, timeout và điều phối lại | BR08, BR09 |
+| FR08 | Tính cước chuyến đi | BR10 |
+| FR09 | Xử lý thanh toán và giao dịch | BR11, BR12 |
+| FR10 | Gửi thông báo cho khách hàng và tài xế | BR13 |
+| FR11 | Quản lý và xử lý hoạt động vận hành | BR14 |
+| FR12 | Cung cấp báo cáo và thống kê | BR15 |
+| FR13 | Kiểm soát quyền và bảo vệ dữ liệu | BR16 |
+| FR14 | Lưu và tra cứu nhật ký hệ thống | BR18 |
 
-## Business Goals
+## Traceability
 
-```text
-17 Business Goals
-```
+| BR | FR |
+|---|---|
+| BR01 | FR01 |
+| BR02 | FR02 |
+| BR03 | FR03 |
+| BR04, BR05 | FR04 |
+| BR06 | FR05 |
+| BR07 | FR06 |
+| BR08, BR09 | FR07 |
+| BR10 | FR08 |
+| BR11, BR12 | FR09 |
+| BR13 | FR10 |
+| BR14 | FR11 |
+| BR15 | FR12 |
+| BR16 | FR13 |
+| BR18 | FR14 |
 
-## Business Domains
+> Tổng cộng: **14 Functional Requirements (FR)**.
 
-```text
-B01 User Management
-B02 Driver & Vehicle Management
-B03 Booking & Trip Management
-B04 Driver Dispatch
-B05 Fare & Payment
-B06 Notification
-B07 Operations Management
-B08 Reporting & Analytics
-```
-
-## Business Requirements
-
-```text
-18 Business Requirements
-```
-
-## Business Processes
-
-```text
-BP01 Quản lý tài khoản
-BP02 Đặt & quản lý chuyến
-BP03 Điều phối tài xế
-BP04 Thực hiện chuyến
-BP05 Tính cước & thanh toán
-BP06 Hậu chuyến
-BP07 Vận hành & báo cáo
-```
-
-## Nguyên tắc phân rã
-
-```text
-Business Goal
-      ↓
-Business Domain
-      ↓
-Business Requirement
-      ↓
-Business Process
-      ↓
-Functional Requirement
-      ↓
-Use Case
-      ↓
-Design / API / Code
-```
-
-> **Lưu ý:** Không code trực tiếp từ Business Process.
-> Business Process chỉ mô tả luồng nghiệp vụ ở mức tổng quát.
-> Các chi tiết như API, database, timeout, retry, provider, notification channel...
-> sẽ được phân tích ở các bước thiết kế và phát triển tiếp theo.
