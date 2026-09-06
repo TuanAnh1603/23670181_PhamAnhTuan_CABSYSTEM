@@ -254,7 +254,7 @@
 | UC14 | Đánh giá tài xế | Khách hàng |
 
 ---
-# 12. Acceptance Criteria (AC)
+# 14. Acceptance Criteria (AC)
 
 > AC (Acceptance Criteria) là các tiêu chí dùng để xác định một Functional Requirement (FR) đã được thực hiện đúng và đủ để nghiệm thu.
 
@@ -297,7 +297,7 @@ Một FR được xem là **Đạt** khi:
 > **AC = Điều kiện để xác nhận FR đã làm đúng và được nghiệm thu**
 
 
-# 14. LUỒNG NGHIỆP VỤ CHÍNH
+# LUỒNG NGHIỆP VỤ CHÍNH
 
 ```text
 Khách hàng
