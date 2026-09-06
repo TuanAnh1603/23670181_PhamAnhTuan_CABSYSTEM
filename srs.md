@@ -301,38 +301,6 @@ Các vấn đề cần xác nhận với khách hàng:
 | 8 | Chính sách bảo mật dữ liệu vị trí |
 | 9 | Thời gian lưu Audit Log |
 
----
 
-# 10. Tổng kết
 
-## Business Domains
 
-```text
-B01 User Management
-B02 Driver & Vehicle Management
-B03 Booking & Trip Management
-B04 Driver Dispatch
-B05 Fare & Payment
-B06 Notification
-B07 Operations Management
-B08 Reporting & Analytics
-```
-
-## Business Processes
-
-```text
-BP01 → Quản lý tài khoản
-BP02 → Đặt xe
-BP03 → Điều phối tài xế
-BP04 → Thực hiện chuyến
-BP05 → Tính cước & thanh toán
-BP06 → Lịch sử & đánh giá
-BP07 → Vận hành & báo cáo
-BP08 → Mở rộng hệ thống
-```
-
-## Nguyên tắc phân tích
-
-> Business Process chỉ mô tả nghiệp vụ chính.  
-> Không tách các chi tiết nhỏ thành process riêng.  
-> Các chi tiết như Timeout, Retry, Filter, API, Provider và kênh thông báo sẽ được phân tích ở các bước tiếp theo.
