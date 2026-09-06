@@ -10,13 +10,13 @@
 |---|---|---|
 | Ban giám đốc | Sponsor | Định hướng, phê duyệt mục tiêu, phạm vi và ngân sách |
 | Product Owner | Product Owner | Xác định ưu tiên và quản lý sản phẩm |
-| Business Analyst | Business Analyst | Thu thập, phân tích và làm rõ yêu cầu |
-| Khách hàng | End User | Đặt xe, theo dõi, thanh toán và đánh giá |
+| Business Analyst | Business Analyst | Phân tích và làm rõ yêu cầu |
+| Khách hàng | End User | Đặt xe, theo dõi, thanh toán, đánh giá |
 | Tài xế | End User | Nhận và thực hiện chuyến |
 | Nhân viên vận hành | Operations | Giám sát và xử lý hoạt động |
 | Kế toán / Tài chính | Financial | Quản lý doanh thu và giao dịch |
 | Quản trị hệ thống | Administrator | Quản lý tài khoản, quyền và cấu hình |
-| Đội phát triển | Development | Phân tích, thiết kế, lập trình và kiểm thử |
+| Đội phát triển | Development | Thiết kế, lập trình và kiểm thử |
 | DevOps / IT | Technical | Hạ tầng, triển khai và giám sát |
 | Security / Compliance | Security | Bảo mật và kiểm tra hệ thống |
 | Nhà cung cấp thanh toán | External Provider | Xử lý thanh toán điện tử |
@@ -93,11 +93,9 @@
 
 - Đăng ký / đăng nhập
 - Xác thực tài khoản
-- Quản lý thông tin cá nhân
-- Quản lý quyền truy cập
+- Quản lý thông tin
+- Quản lý quyền
 - Quản lý trạng thái tài khoản
-
-**Không quản lý:** Đặt xe, điều phối và thanh toán.
 
 ---
 
@@ -107,11 +105,9 @@
 
 - Quản lý hồ sơ tài xế
 - Quản lý phương tiện
-- Quản lý trạng thái tài xế
-- Quản lý vị trí tài xế
-- Theo dõi hoạt động tài xế
-
-**Không quản lý:** Quyết định phân công và tính cước.
+- Quản lý trạng thái
+- Quản lý vị trí
+- Theo dõi hoạt động
 
 ---
 
@@ -119,13 +115,11 @@
 
 **Phạm vi:** Quản lý yêu cầu đặt xe và vòng đời chuyến.
 
-- Tạo yêu cầu đặt xe
+- Tạo yêu cầu
 - Quản lý chuyến
 - Cập nhật trạng thái
-- Hủy / hoàn thành chuyến
+- Hủy / hoàn thành
 - Lịch sử chuyến
-
-**Không quản lý:** Thuật toán điều phối và thanh toán.
 
 ---
 
@@ -133,29 +127,25 @@
 
 **Phạm vi:** Tìm kiếm và phân công tài xế.
 
-- Tìm tài xế phù hợp
+- Tìm tài xế
 - Ưu tiên tài xế
 - Gửi yêu cầu nhận chuyến
 - Xử lý từ chối / không phản hồi
-- Tìm tài xế tiếp theo
-- Xử lý trường hợp không có tài xế
-
-**Không quản lý:** Tạo chuyến và tính cước.
+- Tìm tài xế khác
+- Xử lý không có tài xế
 
 ---
 
 ## 4.6 B05 - Fare & Payment
 
-**Phạm vi:** Tính số tiền và xử lý thanh toán.
+**Phạm vi:** Tính tiền và xử lý thanh toán.
 
 - Tính cước
 - Quản lý phương thức thanh toán
 - Xử lý thanh toán
-- Xử lý thanh toán thất bại
-- Lưu lịch sử giao dịch
+- Xử lý thất bại
+- Lịch sử giao dịch
 - Đối soát
-
-**Không quản lý:** Thông tin thẻ hoặc tài khoản thanh toán nhạy cảm.
 
 ---
 
@@ -165,9 +155,9 @@
 
 - Thông báo đặt xe
 - Thông báo phân công
-- Thông báo trạng thái chuyến
+- Thông báo trạng thái
 - Thông báo thanh toán
-- Quản lý kênh thông báo
+- Quản lý kênh
 
 **Kênh:** Push, SMS, Email.
 
@@ -194,147 +184,84 @@
 - Báo cáo doanh thu
 - Báo cáo hoàn thành
 - Báo cáo hủy
-- Báo cáo hiệu quả tài xế
+- Báo cáo tài xế
 - Dashboard KPI
 
 ---
 
 # 5. Business Requirements
 
-## BR01 - Quản lý người dùng
-Hệ thống phải hỗ trợ đăng ký, đăng nhập, cập nhật thông tin và quản lý quyền người dùng.
-
-## BR02 - Quản lý tài xế và phương tiện
-Hệ thống phải hỗ trợ quản lý hồ sơ tài xế, phương tiện và trạng thái hoạt động.
-
-## BR03 - Quản lý vị trí tài xế
-Hệ thống phải quản lý vị trí tài xế để phục vụ điều phối và theo dõi chuyến.
-
-## BR04 - Đặt xe
-Hệ thống phải cho phép khách hàng tạo yêu cầu đặt xe với điểm đón, điểm đến và loại xe.
-
-## BR05 - Quản lý chuyến đi
-Hệ thống phải quản lý vòng đời chuyến từ khi tạo đến khi hoàn thành hoặc hủy.
-
-## BR06 - Theo dõi chuyến
-Hệ thống phải cho phép theo dõi trạng thái và thông tin chuyến.
-
-## BR07 - Điều phối tài xế
-Hệ thống phải tự động tìm và ưu tiên tài xế phù hợp.
-
-## BR08 - Xử lý từ chối / Timeout
-Hệ thống phải tiếp tục tìm tài xế khác khi tài xế từ chối hoặc không phản hồi.
-
-## BR09 - Không tìm được tài xế
-Hệ thống phải thông báo cho khách hàng khi không tìm được tài xế.
-
-## BR10 - Tính cước
-Hệ thống phải xác định số tiền khách hàng phải trả theo chính sách của doanh nghiệp.
-
-## BR11 - Thanh toán
-Hệ thống phải hỗ trợ thanh toán tiền mặt và thanh toán điện tử.
-
-## BR12 - Thanh toán thất bại
-Hệ thống phải thông báo và hỗ trợ xử lý lại giao dịch khi thanh toán thất bại.
-
-## BR13 - Thông báo
-Hệ thống phải thông báo các sự kiện quan trọng cho khách hàng và tài xế.
-
-## BR14 - Quản lý vận hành
-Hệ thống phải hỗ trợ nhân viên giám sát, tra cứu và xử lý các trường hợp bất thường.
-
-## BR15 - Báo cáo
-Hệ thống phải cung cấp báo cáo về chuyến, doanh thu, hoàn thành, hủy và hiệu quả tài xế.
-
-## BR16 - Bảo mật và phân quyền
-Hệ thống phải xác thực người dùng, kiểm soát quyền và bảo vệ dữ liệu.
-
-## BR17 - Khả năng mở rộng
-Hệ thống phải hỗ trợ mở rộng người dùng, dịch vụ, thanh toán và thông báo.
-
-## BR18 - Audit
-Hệ thống phải lưu vết các thao tác quan trọng.
+| Mã | Business Requirement |
+|---|---|
+| BR01 | Hệ thống phải hỗ trợ đăng ký, đăng nhập, cập nhật thông tin và quản lý quyền người dùng. |
+| BR02 | Hệ thống phải quản lý hồ sơ tài xế, phương tiện và trạng thái hoạt động. |
+| BR03 | Hệ thống phải quản lý vị trí tài xế để phục vụ điều phối và theo dõi. |
+| BR04 | Hệ thống phải cho phép khách hàng tạo yêu cầu đặt xe. |
+| BR05 | Hệ thống phải quản lý vòng đời chuyến từ tạo đến hoàn thành hoặc hủy. |
+| BR06 | Hệ thống phải cho phép theo dõi trạng thái và thông tin chuyến. |
+| BR07 | Hệ thống phải tự động tìm và ưu tiên tài xế phù hợp. |
+| BR08 | Hệ thống phải tìm tài xế khác khi tài xế từ chối hoặc không phản hồi. |
+| BR09 | Hệ thống phải thông báo khi không tìm được tài xế. |
+| BR10 | Hệ thống phải xác định số tiền khách hàng phải trả theo chính sách. |
+| BR11 | Hệ thống phải hỗ trợ thanh toán tiền mặt và điện tử. |
+| BR12 | Hệ thống phải thông báo và hỗ trợ xử lý lại khi thanh toán thất bại. |
+| BR13 | Hệ thống phải thông báo các sự kiện quan trọng cho khách hàng và tài xế. |
+| BR14 | Hệ thống phải hỗ trợ nhân viên giám sát và xử lý các trường hợp bất thường. |
+| BR15 | Hệ thống phải cung cấp báo cáo về chuyến, doanh thu và hiệu quả tài xế. |
+| BR16 | Hệ thống phải xác thực, phân quyền và bảo vệ dữ liệu. |
+| BR17 | Hệ thống phải hỗ trợ mở rộng người dùng, dịch vụ, thanh toán và thông báo. |
+| BR18 | Hệ thống phải lưu vết các thao tác quan trọng. |
 
 ---
 
 # 6. Business Process
 
-> Chỉ mô tả các bước nghiệp vụ chính.  
-> Các chi tiết như timeout, retry, filter, API và provider sẽ được xử lý ở các tài liệu thiết kế sau.
+> Chỉ giữ các bước nghiệp vụ chính.  
+> Chi tiết kỹ thuật sẽ được xử lý ở Functional Requirement và Design.
 
-## BP01 - Quản lý tài khoản
-**BR:** BR01, BR16
-
-1. Người dùng đăng ký / đăng nhập
-2. Hệ thống xác thực và quản lý tài khoản
-
----
-
-## BP02 - Đặt xe
-**BR:** BR04, BR06, BR13
-
-1. Khách hàng tạo yêu cầu đặt xe
-2. Hệ thống tiếp nhận và tạo chuyến
-3. Hệ thống thông báo trạng thái
+| Mã | Quy trình | BR liên quan | Các bước chính |
+|---|---|---|---|
+| BP01 | Quản lý tài khoản | BR01, BR16 | Đăng ký / đăng nhập → Xác thực → Quản lý tài khoản |
+| BP02 | Đặt xe | BR04, BR06, BR13 | Tạo yêu cầu → Tiếp nhận → Thông báo |
+| BP03 | Điều phối tài xế | BR02, BR03, BR07–BR09, BR13 | Tìm tài xế → Nhận / từ chối → Phân công hoặc tìm tiếp → Thông báo |
+| BP04 | Thực hiện chuyến | BR05, BR06, BR13 | Nhận chuyến → Thực hiện → Cập nhật → Hoàn thành / hủy |
+| BP05 | Tính cước & thanh toán | BR10–BR13 | Tính cước → Thanh toán → Ghi nhận kết quả → Xử lý thất bại |
+| BP06 | Lịch sử & đánh giá | BR05, BR06 | Xem lịch sử → Đánh giá → Lưu kết quả |
+| BP07 | Vận hành & báo cáo | BR14–BR16, BR18 | Giám sát → Xử lý → Ghi nhận → Báo cáo |
+| BP08 | Mở rộng hệ thống | BR17 | Mở rộng → Bổ sung dịch vụ / thanh toán / thông báo |
 
 ---
 
-## BP03 - Điều phối tài xế
-**BR:** BR02, BR03, BR07, BR08, BR09, BR13
+# 7. Business Flow
 
-1. Hệ thống tìm tài xế phù hợp
-2. Tài xế nhận hoặc từ chối chuyến
-3. Hệ thống phân công hoặc tìm tài xế khác
-4. Hệ thống thông báo kết quả
+| Bước | Quy trình |
+|---|---|
+| 1 | Khách hàng đặt xe |
+| 2 | Hệ thống điều phối tài xế |
+| 3 | Tài xế thực hiện chuyến |
+| 4 | Hệ thống tính cước |
+| 5 | Khách hàng thanh toán |
+| 6 | Khách hàng xem lịch sử và đánh giá |
 
----
+### Luồng chính
 
-## BP04 - Thực hiện chuyến
-**BR:** BR05, BR06, BR13
-
-1. Tài xế thực hiện chuyến
-2. Hệ thống cập nhật trạng thái và vị trí
-3. Chuyến hoàn thành hoặc bị hủy
-
----
-
-## BP05 - Tính cước & thanh toán
-**BR:** BR10, BR11, BR12, BR13
-
-1. Hệ thống tính cước
-2. Khách hàng thanh toán
-3. Hệ thống ghi nhận kết quả
-4. Xử lý lại khi cần
-
----
-
-## BP06 - Lịch sử & đánh giá
-**BR:** BR05, BR06
-
-1. Khách hàng xem lịch sử và thông tin chuyến
-2. Khách hàng đánh giá tài xế
-3. Hệ thống lưu kết quả
+```text
+Đặt xe
+   ↓
+Điều phối tài xế
+   ↓
+Thực hiện chuyến
+   ↓
+Tính cước
+   ↓
+Thanh toán
+   ↓
+Lịch sử & đánh giá
+```
 
 ---
 
-## BP07 - Vận hành & báo cáo
-**BR:** BR14, BR15, BR16, BR18
-
-1. Nhân viên giám sát và xử lý vận hành
-2. Hệ thống lưu vết hoạt động
-3. Hệ thống cung cấp báo cáo
-
----
-
-## BP08 - Mở rộng hệ thống
-**BR:** BR17
-
-1. Mở rộng các thành phần hệ thống
-2. Bổ sung dịch vụ, thanh toán và thông báo
-
----
-
-# 7. Requirement Traceability
+# 8. Requirement Traceability
 
 | Business Goal | Business Requirement | Business Process |
 |---|---|---|
@@ -346,7 +273,7 @@ Hệ thống phải lưu vết các thao tác quan trọng.
 | BG06 | BR05, BR06 | BP04 |
 | BG07 | BR10, BR11, BR12 | BP05 |
 | BG08 | BR11, BR16 | BP05 |
-| BG09 | BR13 | BP02, BP03, BP04, BP05 |
+| BG09 | BR13 | BP02–BP05 |
 | BG10 | BR14 | BP07 |
 | BG11 | BR15 | BP07 |
 | BG12 | BR17 | BP08 |
@@ -358,25 +285,27 @@ Hệ thống phải lưu vết các thao tác quan trọng.
 
 ---
 
-# 8. Open Issues
+# 9. Open Issues
 
-Các nội dung chưa được doanh nghiệp xác định rõ và cần BA làm rõ trước khi phát triển:
+Các vấn đề cần xác nhận với khách hàng:
 
-- Chính sách tính cước
-- Tiêu chí ưu tiên tài xế
-- Thời gian timeout nhận chuyến
-- Chính sách hủy chuyến
-- Chính sách retry thanh toán
-- Xử lý khi mất kết nối mạng
-- Thời gian lưu trữ dữ liệu
-- Chính sách bảo mật dữ liệu vị trí
-- Chính sách lưu Audit Log
+| STT | Nội dung cần làm rõ |
+|---|---|
+| 1 | Chính sách tính cước |
+| 2 | Tiêu chí ưu tiên tài xế |
+| 3 | Thời gian tài xế phản hồi |
+| 4 | Chính sách hủy chuyến |
+| 5 | Chính sách retry thanh toán |
+| 6 | Xử lý khi mất kết nối |
+| 7 | Thời gian lưu trữ dữ liệu |
+| 8 | Chính sách bảo mật dữ liệu vị trí |
+| 9 | Thời gian lưu Audit Log |
 
 ---
 
-# 9. Tổng quan
+# 10. Tổng kết
 
-### Business Domains
+## Business Domains
 
 ```text
 B01 User Management
@@ -389,7 +318,7 @@ B07 Operations Management
 B08 Reporting & Analytics
 ```
 
-### Business Processes
+## Business Processes
 
 ```text
 BP01 → Quản lý tài khoản
@@ -402,21 +331,8 @@ BP07 → Vận hành & báo cáo
 BP08 → Mở rộng hệ thống
 ```
 
-### Luồng nghiệp vụ chính
+## Nguyên tắc phân tích
 
-```text
-Khách hàng
-    ↓
-Đặt xe
-    ↓
-Điều phối tài xế
-    ↓
-Thực hiện chuyến
-    ↓
-Tính cước
-    ↓
-Thanh toán
-    ↓
-Lịch sử & đánh giá
-```
-
+> Business Process chỉ mô tả nghiệp vụ chính.  
+> Không tách các chi tiết nhỏ thành process riêng.  
+> Các chi tiết như Timeout, Retry, Filter, API, Provider và kênh thông báo sẽ được phân tích ở các bước tiếp theo.
