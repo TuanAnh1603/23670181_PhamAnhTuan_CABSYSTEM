@@ -1,0 +1,33 @@
+openapi: 3.0.3
+info:
+  title: CAB System API
+  description: REST API cho hệ thống đặt xe trực tuyến CAB
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local server
+paths:
+  /api/auth/register:
+    $ref: './openapi/authentication/register.yaml#/paths/~1api~1auth~1register'
+  /api/auth/login:
+    $ref: './openapi/authentication/login.yaml#/paths/~1api~1auth~1login'
+  /api/drivers/{driverId}:
+    $ref: './openapi/driver/update-driver.yaml#/paths/~1api~1drivers~1{driverId}'
+  /api/drivers/{driverId}/location:
+    $ref: './openapi/driver/update-location.yaml#/paths/~1api~1drivers~1{driverId}~1location'
+  /api/trips:
+    $ref: './openapi/trip/create-trip.yaml#/paths/~1api~1trips'
+  /api/trips/{tripId}/dispatch:
+    $ref: './openapi/trip/dispatch-driver.yaml#/paths/~1api~1trips~1{tripId}~1dispatch'
+  /api/trips/{tripId}/status:
+    $ref: './openapi/trip/update-trip-status.yaml#/paths/~1api~1trips~1{tripId}~1status'
+  /api/trips/{tripId}/payment:
+    $ref: './openapi/payment/create-payment.yaml#/paths/~1api~1trips~1{tripId}~1payment'
+  /api/trips/{tripId}/review:
+    $ref: './openapi/review/create-review.yaml#/paths/~1api~1trips~1{tripId}~1review'
+  /api/admin/reports/trips:
+    $ref: './openapi/admin/trip-report.yaml#/paths/~1api~1admin~1reports~1trips'
+components:
+  securitySchemes:
+    bearerAuth:
+      $ref: './components/security.yaml#/components/securitySchemes/bearerAuth'
