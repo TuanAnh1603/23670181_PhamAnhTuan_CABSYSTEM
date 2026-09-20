@@ -1,0 +1,155 @@
+components:
+  schemas:
+    RegisterRequest:
+      type: object
+      required:
+        - fullName
+        - phone
+        - password
+        - role
+      properties:
+        fullName:
+          type: string
+          example: Nguyen Van A
+        phone:
+          type: string
+          example: "0901234567"
+        password:
+          type: string
+          format: password
+          example: "12345678"
+        role:
+          type: string
+          enum:
+            - CUSTOMER
+            - DRIVER
+          example: CUSTOMER
+
+    LoginRequest:
+      type: object
+      required:
+        - phone
+        - password
+      properties:
+        phone:
+          type: string
+          example: "0901234567"
+        password:
+          type: string
+          format: password
+          example: "12345678"
+
+    DriverUpdateRequest:
+      type: object
+      required:
+        - fullName
+        - phone
+      properties:
+        fullName:
+          type: string
+          example: Tran Van B
+        phone:
+          type: string
+          example: "0912345678"
+        licenseNumber:
+          type: string
+          example: B2-123456
+
+    LocationRequest:
+      type: object
+      required:
+        - latitude
+        - longitude
+      properties:
+        latitude:
+          type: number
+          format: double
+          minimum: -90
+          maximum: 90
+          example: 10.7769
+        longitude:
+          type: number
+          format: double
+          minimum: -180
+          maximum: 180
+          example: 106.7009
+
+    CreateTripRequest:
+      type: object
+      required:
+        - customerId
+        - pickup
+        - destination
+        - vehicleType
+      properties:
+        customerId:
+          type: integer
+          format: int64
+          example: 101
+        pickup:
+          $ref: '#/components/schemas/LocationRequest'
+        destination:
+          $ref: '#/components/schemas/LocationRequest'
+        vehicleType:
+          type: string
+          enum:
+            - CAR
+            - MOTORBIKE
+          example: CAR
+
+    DispatchRequest:
+      type: object
+      properties:
+        searchRadius:
+          type: number
+          format: double
+          minimum: 0
+          example: 5
+
+    TripStatusRequest:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          type: string
+          enum:
+            - CREATED
+            - ASSIGNED
+            - PICKING_UP
+            - IN_TRIP
+            - COMPLETED
+            - CANCELLED
+          example: IN_TRIP
+
+    PaymentRequest:
+      type: object
+      required:
+        - paymentMethod
+        - amount
+      properties:
+        paymentMethod:
+          type: string
+          enum:
+            - CASH
+            - WALLET
+          example: WALLET
+        amount:
+          type: number
+          format: double
+          minimum: 0
+          example: 85000
+
+    ReviewRequest:
+      type: object
+      required:
+        - rating
+      properties:
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+          example: 5
+        comment:
+          type: string
+          example: Tai xe rat nhiet tinh

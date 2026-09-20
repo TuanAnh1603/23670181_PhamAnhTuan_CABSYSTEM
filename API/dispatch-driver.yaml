@@ -1,0 +1,39 @@
+openapi: 3.0.3
+info:
+  title: CAB System API - Dispatch Driver
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/trips/{tripId}/dispatch:
+    post:
+      tags:
+        - Trip
+      summary: Điều phối tài xế
+      operationId: dispatchDriver
+      parameters:
+        - name: tripId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '../../components/schemas.yaml#/components/schemas/DispatchRequest'
+      responses:
+        '200':
+          description: Điều phối thành công
+        '404':
+          description: Không tìm thấy tài xế
+        '409':
+          description: Không thể điều phối chuyến
+components:
+  securitySchemes:
+    bearerAuth:
+      $ref: '../../components/security.yaml#/components/securitySchemes/bearerAuth'
