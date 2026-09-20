@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: CAB System API - Update Driver
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/drivers/{driverId}:
+    put:
+      tags:
+        - Driver
+      summary: Cập nhật thông tin tài xế
+      operationId: updateDriver
+      parameters:
+        - name: driverId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../../components/schemas.yaml#/components/schemas/DriverUpdateRequest'
+      responses:
+        '200':
+          description: Cập nhật thành công
+        '400':
+          description: Dữ liệu không hợp lệ
+        '401':
+          description: Chưa đăng nhập
+        '404':
+          description: Không tìm thấy tài xế
+components:
+  securitySchemes:
+    bearerAuth:
+      $ref: '../../components/security.yaml#/components/securitySchemes/bearerAuth'

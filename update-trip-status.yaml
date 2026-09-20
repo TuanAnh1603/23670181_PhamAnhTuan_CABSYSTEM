@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: CAB System API - Update Trip Status
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/trips/{tripId}/status:
+    put:
+      tags:
+        - Trip
+      summary: Cập nhật trạng thái chuyến
+      operationId: updateTripStatus
+      parameters:
+        - name: tripId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../../components/schemas.yaml#/components/schemas/TripStatusRequest'
+      responses:
+        '200':
+          description: Cập nhật trạng thái thành công
+        '400':
+          description: Trạng thái không hợp lệ
+        '404':
+          description: Không tìm thấy chuyến
+        '409':
+          description: Không thể chuyển trạng thái
+components:
+  securitySchemes:
+    bearerAuth:
+      $ref: '../../components/security.yaml#/components/securitySchemes/bearerAuth'
