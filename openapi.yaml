@@ -1,1 +1,575 @@
 
+openapi: 3.0.3
+
+info:
+title: CAB System API
+description: REST API cho hệ thống đặt xe trực tuyến CAB
+version: 1.0.0
+
+servers:
+
+url: http://localhost:8080
+description: Local server
+
+tags:
+
+name: Authentication
+description: Đăng ký và đăng nhập
+
+name: Driver
+description: Quản lý tài xế và vị trí GPS
+
+name: Trip
+description: Đặt và quản lý chuyến xe
+
+name: Payment
+description: Thanh toán
+
+name: Review
+description: Đánh giá chuyến đi
+
+name: Admin
+description: Quản trị và báo cáo
+
+paths:
+
+/api/auth/register:
+post:
+tags:
+- Authentication
+summary: Đăng ký tài khoản
+operationId: registerUser
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/RegisterRequest'
+
+  responses:
+    '201':
+      description: Đăng ký thành công
+
+    '400':
+      description: Dữ liệu không hợp lệ
+
+    '409':
+      description: Tài khoản đã tồn tại
+
+
+/api/auth/login:
+post:
+tags:
+- Authentication
+summary: Đăng nhập
+operationId: loginUser
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/LoginRequest'
+
+  responses:
+    '200':
+      description: Đăng nhập thành công
+
+    '400':
+      description: Dữ liệu không hợp lệ
+
+    '401':
+      description: Sai tài khoản hoặc mật khẩu
+
+
+/api/drivers/{driverId}:
+put:
+tags:
+- Driver
+summary: Cập nhật thông tin tài xế
+operationId: updateDriver
+
+  parameters:
+    - name: driverId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+
+  security:
+    - bearerAuth: []
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/DriverUpdateRequest'
+
+  responses:
+    '200':
+      description: Cập nhật thành công
+
+    '400':
+      description: Dữ liệu không hợp lệ
+
+    '401':
+      description: Chưa đăng nhập
+
+    '404':
+      description: Không tìm thấy tài xế
+
+
+/api/drivers/{driverId}/location:
+post:
+tags:
+- Driver
+summary: Cập nhật vị trí GPS
+operationId: updateDriverLocation
+
+  parameters:
+    - name: driverId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+
+  security:
+    - bearerAuth: []
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/LocationRequest'
+
+  responses:
+    '200':
+      description: Cập nhật GPS thành công
+
+    '400':
+      description: Tọa độ không hợp lệ
+
+    '401':
+      description: Chưa đăng nhập
+
+    '404':
+      description: Không tìm thấy tài xế
+
+
+/api/trips:
+post:
+tags:
+- Trip
+summary: Tạo chuyến đặt xe
+operationId: createTrip
+
+  security:
+    - bearerAuth: []
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/CreateTripRequest'
+
+  responses:
+    '201':
+      description: Tạo chuyến thành công
+
+    '400':
+      description: Dữ liệu không hợp lệ
+
+    '401':
+      description: Chưa đăng nhập
+
+
+/api/trips/{tripId}/dispatch:
+post:
+tags:
+- Trip
+summary: Điều phối tài xế
+operationId: dispatchDriver
+
+  parameters:
+    - name: tripId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+
+  security:
+    - bearerAuth: []
+
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/DispatchRequest'
+
+  responses:
+    '200':
+      description: Điều phối thành công
+
+    '404':
+      description: Không tìm thấy tài xế
+
+    '409':
+      description: Không thể điều phối chuyến
+
+
+/api/trips/{tripId}/status:
+put:
+tags:
+- Trip
+summary: Cập nhật trạng thái chuyến
+operationId: updateTripStatus
+
+  parameters:
+    - name: tripId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+
+  security:
+    - bearerAuth: []
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/TripStatusRequest'
+
+  responses:
+    '200':
+      description: Cập nhật trạng thái thành công
+
+    '400':
+      description: Trạng thái không hợp lệ
+
+    '404':
+      description: Không tìm thấy chuyến
+
+    '409':
+      description: Không thể chuyển trạng thái
+
+
+/api/trips/{tripId}/payment:
+post:
+tags:
+- Payment
+summary: Thanh toán chuyến đi
+operationId: createPayment
+
+  parameters:
+    - name: tripId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+
+  security:
+    - bearerAuth: []
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/PaymentRequest'
+
+  responses:
+    '200':
+      description: Thanh toán thành công
+
+    '400':
+      description: Dữ liệu thanh toán không hợp lệ
+
+    '402':
+      description: Thanh toán thất bại
+
+    '404':
+      description: Không tìm thấy chuyến
+
+
+/api/trips/{tripId}/review:
+post:
+tags:
+- Review
+summary: Đánh giá chuyến đi
+operationId: createReview
+
+  parameters:
+    - name: tripId
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+
+  security:
+    - bearerAuth: []
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/ReviewRequest'
+
+  responses:
+    '201':
+      description: Đánh giá thành công
+
+    '400':
+      description: Rating không hợp lệ
+
+    '404':
+      description: Không tìm thấy chuyến
+
+    '409':
+      description: Chuyến chưa hoàn thành hoặc đã được đánh giá
+
+
+/api/admin/reports/trips:
+get:
+tags:
+- Admin
+summary: Xem báo cáo chuyến đi
+operationId: getTripReport
+
+  security:
+    - bearerAuth: []
+
+  parameters:
+    - name: from
+      in: query
+      required: true
+      schema:
+        type: string
+        format: date
+      example: "2026-09-01"
+
+    - name: to
+      in: query
+      required: true
+      schema:
+        type: string
+        format: date
+      example: "2026-09-20"
+
+  responses:
+    '200':
+      description: Lấy báo cáo thành công
+
+    '401':
+      description: Chưa đăng nhập
+
+    '403':
+      description: Không có quyền truy cập
+
+
+components:
+
+securitySchemes:
+
+bearerAuth:
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+
+
+schemas:
+
+RegisterRequest:
+  type: object
+  required:
+    - fullName
+    - phone
+    - password
+    - role
+
+  properties:
+    fullName:
+      type: string
+      example: Nguyen Van A
+
+    phone:
+      type: string
+      example: "0901234567"
+
+    password:
+      type: string
+      format: password
+      example: "12345678"
+
+    role:
+      type: string
+      enum:
+        - CUSTOMER
+        - DRIVER
+      example: CUSTOMER
+
+
+LoginRequest:
+  type: object
+  required:
+    - phone
+    - password
+
+  properties:
+    phone:
+      type: string
+      example: "0901234567"
+
+    password:
+      type: string
+      format: password
+      example: "12345678"
+
+
+DriverUpdateRequest:
+  type: object
+  required:
+    - fullName
+    - phone
+
+  properties:
+    fullName:
+      type: string
+      example: Tran Van B
+
+    phone:
+      type: string
+      example: "0912345678"
+
+    licenseNumber:
+      type: string
+      example: B2-123456
+
+
+LocationRequest:
+  type: object
+  required:
+    - latitude
+    - longitude
+
+  properties:
+    latitude:
+      type: number
+      format: double
+      minimum: -90
+      maximum: 90
+      example: 10.7769
+
+    longitude:
+      type: number
+      format: double
+      minimum: -180
+      maximum: 180
+      example: 106.7009
+
+
+CreateTripRequest:
+  type: object
+  required:
+    - customerId
+    - pickup
+    - destination
+    - vehicleType
+
+  properties:
+    customerId:
+      type: integer
+      format: int64
+      example: 101
+
+    pickup:
+      $ref: '#/components/schemas/LocationRequest'
+
+    destination:
+      $ref: '#/components/schemas/LocationRequest'
+
+    vehicleType:
+      type: string
+      enum:
+        - CAR
+        - MOTORBIKE
+      example: CAR
+
+
+DispatchRequest:
+  type: object
+  properties:
+    searchRadius:
+      type: number
+      format: double
+      minimum: 0
+      example: 5
+
+
+TripStatusRequest:
+  type: object
+  required:
+    - status
+
+  properties:
+    status:
+      type: string
+      enum:
+        - CREATED
+        - ASSIGNED
+        - PICKING_UP
+        - IN_TRIP
+        - COMPLETED
+        - CANCELLED
+      example: IN_TRIP
+
+
+PaymentRequest:
+  type: object
+  required:
+    - paymentMethod
+    - amount
+
+  properties:
+    paymentMethod:
+      type: string
+      enum:
+        - CASH
+        - WALLET
+      example: WALLET
+
+    amount:
+      type: number
+      format: double
+      minimum: 0
+      example: 85000
+
+
+ReviewRequest:
+  type: object
+  required:
+    - rating
+
+  properties:
+    rating:
+      type: integer
+      minimum: 1
+      maximum: 5
+      example: 5
+
+    comment:
+      type: string
+      example: Tai xe rat nhiet tinh
